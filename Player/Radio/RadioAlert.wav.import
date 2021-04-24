@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/RadioAlert.wav-16d0889dbebc20013bb3eb70c79f5762.sample"
+
+[deps]
+
+source_file="res://Player/Radio/RadioAlert.wav"
+dest_files=[ "res://.import/RadioAlert.wav-16d0889dbebc20013bb3eb70c79f5762.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

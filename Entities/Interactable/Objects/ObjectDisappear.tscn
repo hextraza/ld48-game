@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Interactable/Objects/ObjectDisappear.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Interactable/Objects/ObjectDisappear.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Test_Environment/test_env.glb" type="PackedScene" id=2]
-[ext_resource path="res://Interactable/Interactable.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Interactable/Interactable.tscn" type="PackedScene" id=3]
+
 
 [node name="ObjectDisappear" type="Spatial"]
 script = ExtResource( 1 )

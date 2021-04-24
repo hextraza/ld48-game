@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "StaticBody",
 "class": "Interactable",
 "language": "GDScript",
-"path": "res://Interactable/Interactable.gd"
+"path": "res://Entities/Interactable/Interactable.gd"
 } ]
 _global_script_class_icons={
 "Interactable": ""

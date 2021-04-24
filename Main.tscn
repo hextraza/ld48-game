@@ -3,9 +3,9 @@
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Test_Environment/Test_Environment.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Interactable/Objects/ObjectDisappear.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Fonts/yoster.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Interactable/Objects/ObjectMove.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Interactable/Objects/ObjectDisappear.tscn" type="PackedScene" id=4]
+[ext_resource path="res://yoster.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Entities/Interactable/Objects/ObjectMove.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30

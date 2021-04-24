@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Entities/Elevator/elevator_door.gltf" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Elevator/elevator_chamber.gltf" type="PackedScene" id=2]
+
+[node name="Elevator" type="Spatial"]
+
+[node name="elevator_chamber" parent="." instance=ExtResource( 2 )]
+
+[node name="elevator_door" parent="." instance=ExtResource( 1 )]

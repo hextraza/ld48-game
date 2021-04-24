@@ -9,7 +9,7 @@
 [node name="UI" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.243622, 2.11291, 17.7236 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0254822, 2.77047, 2.42725 )
 
 [node name="Test_Environment" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1.92828, 0, 0, 0, 1.49025, 0, 0, 0, 2.37433, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 0.999784, 0.0207854, 0, -0.0207854, 0.999784, 0, 0, -2.59938 )

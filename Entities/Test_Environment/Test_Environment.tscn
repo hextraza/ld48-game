@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Entities/Test_Environment/test_env.glb" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Elevator/Elevator.tscn" type="PackedScene" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 8.82613, 1, 0.499914 )
@@ -9,29 +10,79 @@ extents = Vector3( 8.82613, 1, 0.499914 )
 
 [node name="Test_Environment" type="Spatial"]
 
-[node name="test_env_mesh" parent="." instance=ExtResource( 1 )]
+[node name="Meshes" type="Spatial" parent="."]
 
-[node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9.21773, 0 )
-light_energy = 6.73
+[node name="test_env_mesh" parent="Meshes" instance=ExtResource( 1 )]
+
+[node name="test_env_mesh2" parent="Meshes" instance=ExtResource( 1 )]
+transform = Transform( 0.996147, -0.0857637, -0.0183016, 0.0876947, 0.974213, 0.207893, 0, -0.208697, 0.97798, -0.0493187, -5.03359, -15.6816 )
+
+[node name="test_env_mesh3" parent="Meshes" instance=ExtResource( 1 )]
+transform = Transform( 0.991637, 0.121987, -0.0421249, -0.129055, 0.937324, -0.32368, 0, 0.32641, 0.945228, 0.0693836, -6.60953, -32.515 )
+
+[node name="Floor_Collision" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor_Collision"]
+transform = Transform( 0.996147, -0.0174613, -0.309468, 0.0876947, 0.198348, 3.51532, 0, -0.0424903, 16.537, 0.0493253, -6.15412, -15.4649 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Floor_Collision"]
+transform = Transform( 1, 0, 0, 0, 0.203598, 0, 0, 0, 16.9093, 0, -1.1574, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Floor_Collision"]
+transform = Transform( 0.991637, 0.0248362, -0.712302, -0.129055, 0.190837, -5.4732, 0, 0.0664564, 15.9832, -0.0693696, -7.67569, -32.9104 )
+shape = SubResource( 1 )
+
+[node name="Box_Collision" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Box_Collision"]
+transform = Transform( 0.996147, -0.0857637, -0.0183016, 0.0876947, 0.974213, 0.207893, 0, -0.208697, 0.97798, -0.0454655, -5.0582, -15.6673 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Box_Collision"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Box_Collision"]
+transform = Transform( 0.991637, 0.121987, -0.0421249, -0.129055, 0.937324, -0.32368, 0, 0.32641, 0.945228, 0.0673497, -6.63818, -32.5156 )
+shape = SubResource( 2 )
+
+[node name="Lighting" type="Spatial" parent="."]
+
+[node name="SpotLight" type="SpotLight" parent="Lighting"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9.21773, 5.23928 )
+light_energy = 0.43
 light_indirect_energy = 2.62
 light_specular = 0.62
 spot_range = 22.0
 
-[node name="SpotLight2" type="SpotLight" parent="."]
-transform = Transform( 1, -1.98853e-05, -6.36758e-05, 9.11096e-06, -0.904879, 0.425668, -6.60835e-05, -0.425668, -0.904879, 0, 9.21773, -9.21773 )
-light_energy = 10.26
+[node name="SpotLight2" type="SpotLight" parent="Lighting"]
+transform = Transform( 1, -1.98853e-05, -6.36758e-05, 9.11096e-06, -0.904879, 0.425668, -6.60835e-05, -0.425668, -0.904879, 0, 9.21773, -11.7037 )
+light_energy = 1.13
 light_indirect_energy = 2.15
 light_specular = 0.23
-spot_range = 22.0
+spot_range = 28.5387
 
-[node name="Floor" type="StaticBody" parent="."]
+[node name="SpotLight3" type="SpotLight" parent="Lighting"]
+transform = Transform( 1, -1.98853e-05, -6.36758e-05, 9.11096e-06, -0.904879, 0.425668, -6.60835e-05, -0.425668, -0.904879, -1.87532, 0.555947, -32.5503 )
+light_energy = 1.21
+light_indirect_energy = 10.87
+light_specular = 0.23
+spot_range = 25.1534
 
-[node name="CollisionShape" type="CollisionShape" parent="Floor"]
-transform = Transform( 1, 0, 0, 0, 0.203598, 0, 0, 0, 16.9093, 0, -1.1574, 0 )
-shape = SubResource( 1 )
+[node name="SpotLight5" type="SpotLight" parent="Lighting"]
+transform = Transform( 1, -1.98853e-05, -6.36758e-05, 6.65161e-05, 0.369698, 0.929152, 5.06431e-06, -0.929152, 0.369698, -1.87532, 9.63104, -22.5009 )
+light_energy = 1.21
+light_indirect_energy = 10.87
+light_specular = 0.23
+spot_range = 25.1534
 
-[node name="Box" type="StaticBody" parent="."]
+[node name="SpotLight4" type="SpotLight" parent="Lighting"]
+transform = Transform( 1, -1.98853e-05, -6.36758e-05, 9.11096e-06, -0.904879, 0.425668, -6.60835e-05, -0.425668, -0.904879, -1.87532, 4.93231, -44.6491 )
+light_energy = 1.21
+light_indirect_energy = 10.87
+light_specular = 0.23
+spot_range = 25.1534
 
-[node name="CollisionShape" type="CollisionShape" parent="Box"]
-shape = SubResource( 2 )
+[node name="Elevator" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.991637, 0.121987, -0.0421248, -0.129055, 0.937324, -0.32368, 0, 0.32641, 0.945228, 0.0693836, -2.87319, -37.2633 )

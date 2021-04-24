@@ -82,6 +82,7 @@ func process_movement(delta):
 	vel.x = hvel.x
 	vel.z = hvel.z
 	
+	# nightmare nightmare nightmare nightmare nightmare nightmare nightmare
 	if !is_on_floor() or dir != Vector3(0,0,0):
 		vel = move_and_slide(vel, Vector3(0, 1, 0), true, 4, deg2rad(MAX_SLOPE_ANGLE))
 	

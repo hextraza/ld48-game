@@ -35,3 +35,5 @@ stream = ExtResource( 3 )
 
 [node name="RadioWhiteNoise" type="AudioStreamPlayer3D" parent="PathFollow"]
 stream = ExtResource( 4 )
+
+[connection signal="finished" from="PathFollow/RadioAudio" to="PathFollow" method="_on_RadioAudio_finished"]

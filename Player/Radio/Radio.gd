@@ -37,7 +37,6 @@ func listening() -> void:
 
 func finished() -> void:
 	is_pending = false
-	radio_audio.stream = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
@@ -70,6 +69,10 @@ func _process(delta) -> void:
 				lowering()
 			
 			if radio_audio.stream:
-				if radio_audio.get_playback_position() >= radio_audio.stream.get_length():
+				if radio_audio.get_playback_position() >= radio_audio.stream.get_length() * 0.9:
 					finished()
 	
+
+
+func _on_RadioAudio_finished():
+	radio_audio.stream = null

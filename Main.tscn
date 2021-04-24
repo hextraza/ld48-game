@@ -54,10 +54,10 @@ align = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0254822, 2.77047, 2.42725 )
 
 [node name="Test_Environment" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.999784, 0.0207854, 0, -0.0207854, 0.999784, 0, 0, -2.59938 )
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
 
 [node name="ObjectDisappear" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.096142, 0, 0, 0, 0.619065, 0, 0, 0, 0.096142, 5.01335, 4.76837e-07, -7.84968 )
+transform = Transform( 0.096142, 0, 0, 0, 0.619065, 0, 0, 0, 0.096142, -0.913476, 0.481768, -4.62881 )
 
 [node name="ObjectMove" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.155417, 0, 0, 0, 0.820143, 0, 0, 0, 0.155417, 8.68491, 0, -6.79061 )
+transform = Transform( 0.155417, 0, 0, 0, 0.820143, 0, 0, 0, 0.155417, 2.75808, 0.0824296, -3.64791 )

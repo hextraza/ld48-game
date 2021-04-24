@@ -1,5 +1,15 @@
 extends StaticBody
 
-
-func _on_StaticBody_input_event(_camera, _event, _click_position, _click_normal, _shape_idx):
-	print("input event")
+class_name Interactable
+func get_class() -> String:
+	return "Interactable"
+	
+# Signals
+signal object_interacted
+	
+# Variables
+var interacted := false
+	
+func interact() -> void:
+	interacted = true
+	emit_signal("object_interacted")

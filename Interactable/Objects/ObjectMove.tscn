@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Interactable/Objects/ObjectMove.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Test_Environment/test_env.glb" type="PackedScene" id=2]
+[ext_resource path="res://Interactable/Interactable.tscn" type="PackedScene" id=3]
+
+[node name="ObjectMove" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="test_env" parent="." instance=ExtResource( 2 )]
+
+[node name="StaticBody" parent="test_env" instance=ExtResource( 3 )]
+transform = Transform( 43.8524, 0, 0, 0, 6.07985, 0, 0, 0, 41.4622, 0, 0, 0 )
+
+[connection signal="object_interacted" from="test_env/StaticBody" to="." method="_on_StaticBody_object_interacted"]

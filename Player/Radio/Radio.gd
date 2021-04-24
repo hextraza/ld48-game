@@ -1,5 +1,9 @@
 extends PathFollow
 
+# To make use of the radio clips, all you have to do is call pending_signal
+# with the audio sample that you want to play. You can get the radio by calling
+# get_tree().get_nodes_in_group("radio")
+
 export(float) var raising_speed := 0.0
 onready var radio_pending_noise := $RadioPendingNoise
 onready var radio_white_noise := $RadioWhiteNoise
@@ -25,6 +29,8 @@ func raising() -> void:
 	state = RadioStates.RAISING
 	
 func lowering() -> void:
+	if state == RadioStates.LISTENING and is_pending == false:
+		radio_audio.stream = null
 	radio_white_noise.playing = false
 	radio_audio.playing = false
 	state = RadioStates.LOWERING

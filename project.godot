@@ -10,14 +10,24 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
 
 config/name="LD48 Game"
-config/icon="res://icon.png"
+run/main_scene="res://Main.tscn"
+boot_splash/fullsize=false
+
+[debug]
+
+settings/stdout/print_fps=true
+gdscript/warnings/treat_warnings_as_errors=true
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_clear_color=Color( 0, 0, 0, 1 )

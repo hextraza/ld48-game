@@ -26,7 +26,7 @@ script = ExtResource( 2 )
 raising_speed = 1.0
 
 [node name="Radio" parent="PathFollow" instance=ExtResource( 1 )]
-transform = Transform( -4.37115e-10, 0, 0.00999999, 0, 0.01, 0, -0.01, 0, -4.37113e-10, 0, 0, 0 )
+transform = Transform( 4.37114e-10, 0, 0.01, 0, 0.01, 0, 0.01, 0, -4.37114e-10, 0, 0, 0 )
 
 [node name="RadioPendingNoise" type="AudioStreamPlayer" parent="PathFollow"]
 stream = ExtResource( 3 )
@@ -35,5 +35,3 @@ stream = ExtResource( 3 )
 
 [node name="RadioWhiteNoise" type="AudioStreamPlayer" parent="PathFollow"]
 stream = ExtResource( 4 )
-
-[connection signal="finished" from="PathFollow/RadioAudio" to="PathFollow" method="_on_RadioAudio_finished"]

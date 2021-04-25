@@ -35,14 +35,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0254822, 2.77047, 2.42725 )
 
 [node name="Test_Environment" parent="." instance=ExtResource( 3 )]
 
-[node name="ObjectDisappear" parent="." instance=ExtResource( 4 )]
+[node name="ObjectDisappear" parent="Test_Environment" instance=ExtResource( 4 )]
 transform = Transform( 0.096142, 0, 0, 0, 0.619065, 0, 0, 0, 0.096142, 0.409886, -0.0719781, -4.62881 )
 
-[node name="ObjectMove" parent="." instance=ExtResource( 6 )]
+[node name="ObjectMove" parent="Test_Environment" instance=ExtResource( 6 )]
 transform = Transform( 0.155417, 0, 0, 0, 0.820143, 0, 0, 0, 0.155417, 2.75808, 0.0824296, -3.64791 )
 
-[node name="Spatial" type="Spatial" parent="."]
+[node name="Spatial" type="Spatial" parent="Test_Environment"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61185, 0.138154, 3.45607 )
 
-[node name="Spatial2" parent="." instance=ExtResource( 5 )]
+[node name="Spatial2" parent="Test_Environment" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.14791, -0.936627, 0 )

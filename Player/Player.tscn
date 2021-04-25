@@ -23,9 +23,9 @@ enabled = true
 cast_to = Vector3( 0, 0, -1 )
 script = ExtResource( 2 )
 
+[node name="Spatial" parent="Rotation_Helper" instance=ExtResource( 3 )]
+transform = Transform( -1.31309e-07, 0, 3.004, 0, 3.004, 0, -3.004, 0, -1.31309e-07, 0.248017, 1.15528, -0.250894 )
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.775693, 0 )
 shape = SubResource( 1 )
-
-[node name="Spatial" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1.31309e-07, 0, 3.004, 0, 3.004, 0, -3.004, 0, -1.31309e-07, 0.248017, 1.15528, -0.250894 )

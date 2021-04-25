@@ -31,9 +31,9 @@ transform = Transform( -4.37115e-10, 0, 0.00999999, 0, 0.01, 0, -0.01, 0, -4.371
 [node name="RadioPendingNoise" type="AudioStreamPlayer" parent="PathFollow"]
 stream = ExtResource( 3 )
 
-[node name="RadioAudio" type="AudioStreamPlayer3D" parent="PathFollow"]
+[node name="RadioAudio" type="AudioStreamPlayer" parent="PathFollow"]
 
-[node name="RadioWhiteNoise" type="AudioStreamPlayer3D" parent="PathFollow"]
+[node name="RadioWhiteNoise" type="AudioStreamPlayer" parent="PathFollow"]
 stream = ExtResource( 4 )
 
 [connection signal="finished" from="PathFollow/RadioAudio" to="PathFollow" method="_on_RadioAudio_finished"]

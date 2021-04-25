@@ -77,7 +77,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0254822, 2.77047, 2.42725 )
 transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
 
 [node name="ObjectDisappear" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.096142, 0, 0, 0, 0.619065, 0, 0, 0, 0.096142, -0.913476, 0.481768, -4.62881 )
+transform = Transform( 0.096142, 0, 0, 0, 0.619065, 0, 0, 0, 0.096142, 0.409886, -0.0719781, -4.62881 )
 sample = ExtResource( 7 )
 
 [node name="ObjectMove" parent="." instance=ExtResource( 6 )]

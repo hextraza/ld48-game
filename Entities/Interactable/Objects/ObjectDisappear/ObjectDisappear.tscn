@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Entities/Interactable/Objects/ObjectDisappear.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Interactable/Objects/ObjectDisappear/ObjectDisappear.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Test_Environment/test_env.glb" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Interactable/Interactable.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/Radio/RadioClips/RadioAudioTest.wav" type="AudioStream" id=4]
@@ -11,7 +11,7 @@ sample = ExtResource( 4 )
 
 [node name="test_env" parent="." instance=ExtResource( 2 )]
 
-[node name="StaticBody" parent="test_env" instance=ExtResource( 3 )]
+[node name="KinematicBody" parent="test_env" instance=ExtResource( 3 )]
 transform = Transform( 42.3961, 0, 0, 0, 4.45374, 0, 0, 0, 40.1397, 0, 0, 0 )
 
-[connection signal="object_interacted" from="test_env/StaticBody" to="." method="_on_KinematicBody_object_interacted"]
+[connection signal="object_interacted" from="test_env/KinematicBody" to="." method="_on_KinematicBody_object_interacted"]

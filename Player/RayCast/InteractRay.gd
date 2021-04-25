@@ -34,7 +34,7 @@ func _physics_process(_delta) -> void:
 		InteractableRay.WAITING:
 			if is_colliding():
 				var collision_object = get_collider()
-				if collision_object.get_class() == "Interactable" and (collision_object as Interactable).interacted == false:
+				if collision_object.get_class() == "Interactable" and not collision_object.interacted and collision_object.active:
 					can_interact(collision_object)
 					
 		InteractableRay.CAN_INTERACT:

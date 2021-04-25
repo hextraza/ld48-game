@@ -47,6 +47,7 @@ shape = SubResource( 1 )
 script = ExtResource( 4 )
 
 [node name="KinematicBody" type="KinematicBody" parent="Door"]
+collision_layer = 3
 script = ExtResource( 3 )
 
 [node name="elevator_door" parent="Door/KinematicBody" instance=ExtResource( 1 )]
@@ -57,6 +58,7 @@ shape = SubResource( 2 )
 
 [node name="Control Panel" type="KinematicBody" parent="."]
 transform = Transform( -6.51683e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -6.51683e-09, -1.28268, -1.04636, 0.385608 )
+collision_layer = 3
 script = ExtResource( 3 )
 
 [node name="control_panel" parent="Control Panel" instance=ExtResource( 5 )]

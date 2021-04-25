@@ -85,4 +85,5 @@ light_specular = 0.23
 spot_range = 25.1534
 
 [node name="Elevator" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.991637, 0.121987, -0.0421248, -0.129055, 0.937324, -0.32368, 0, 0.32641, 0.945228, 0.0693836, -2.87319, -37.2633 )
+transform = Transform( -9.77524e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -9.77524e-08, 7.22841, 0.838377, 0 )
+new_player_position = Vector3( 0, 28, 0 )

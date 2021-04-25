@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Hanging Lamp.glb-0a10af93b43e03b564d288b20c2f5bd2.scn"
+path="res://.import/Teddy Bear.glb-4da3d91c8365dbc8825385098cc39ddf.scn"
 
 [deps]
 
-source_file="res://Entities/Hanging_Lamp/Hanging Lamp.glb"
-dest_files=[ "res://.import/Hanging Lamp.glb-0a10af93b43e03b564d288b20c2f5bd2.scn" ]
+source_file="res://Entities/Teddy_Bear/Teddy Bear.glb"
+dest_files=[ "res://.import/Teddy Bear.glb-4da3d91c8365dbc8825385098cc39ddf.scn" ]
 
 [params]
 

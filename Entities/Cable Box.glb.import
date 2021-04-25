@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Cable Box.glb-c32d3f881694ca39add0bf58da7b8b53.scn"
+path="res://.import/Cable Box.glb-6497d5a52d59aa3beef4e397bf02bad3.scn"
 
 [deps]
 
-source_file="res://Entities/Cable_Box/Cable Box.glb"
-dest_files=[ "res://.import/Cable Box.glb-c32d3f881694ca39add0bf58da7b8b53.scn" ]
+source_file="res://Entities/Cable Box.glb"
+dest_files=[ "res://.import/Cable Box.glb-6497d5a52d59aa3beef4e397bf02bad3.scn" ]
 
 [params]
 

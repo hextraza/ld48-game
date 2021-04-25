@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Alarm Light.glb-ef7b5e1b981aefa703e09d5ac5691024.scn"
+path="res://.import/Cable Box.glb-6c9965d546b0fa5192492c7ecb9f3531.scn"
 
 [deps]
 
-source_file="res://Entities/Alarm_Light/Alarm Light.glb"
-dest_files=[ "res://.import/Alarm Light.glb-ef7b5e1b981aefa703e09d5ac5691024.scn" ]
+source_file="res://Entities/Alarm/Cable Box.glb"
+dest_files=[ "res://.import/Cable Box.glb-6c9965d546b0fa5192492c7ecb9f3531.scn" ]
 
 [params]
 

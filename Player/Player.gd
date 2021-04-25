@@ -20,6 +20,7 @@ var MOUSE_SENSITIVITY = 0.05
 var rng = RandomNumberGenerator.new()
 var shake_intensity = 0
 var has_office_key := false
+var has_control_panel_key := false
 
 func _ready():
 	camera = $Rotation_Helper/Camera

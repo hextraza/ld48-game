@@ -5,11 +5,11 @@ onready var audio := $AudioStreamPlayer
 func _on_StaticBody_object_interacted():
 	var players = get_tree().get_nodes_in_group("player")
 	if players:
-		players[0].has_office_key = true
+		players[0].has_control_panel_key = true
 		
 	var labels = get_tree().get_nodes_in_group("informational_label")
 	if labels:
-		labels[0].display("Obtained Admin Key")
+		labels[0].display("Obtained Control Panel Key")
 	
 	self.visible = false
 	

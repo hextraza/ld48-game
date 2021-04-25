@@ -29,9 +29,9 @@ func _process(delta):
 					next_attenuation_val = 2
 					time_to_flicker = 0.1
 				elif next_attenuation_val == 2:
-					next_attenuation_val = 25
+					next_attenuation_val = 300
 					time_to_flicker = 5
-				elif next_attenuation_val == 25:
+				elif next_attenuation_val == 300:
 					next_attenuation_val = rng.randf_range(0.5, 0.7)
 					time_to_flicker = rng.randf_range(0.1, 0.2)
 					turning_off = false

@@ -80,3 +80,6 @@ transform = Transform( 0.096142, 0, 0, 0, 0.619065, 0, 0, 0, 0.096142, 0.409886,
 
 [node name="ObjectMove" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.155417, 0, 0, 0, 0.820143, 0, 0, 0, 0.155417, 2.75808, 0.0824296, -3.64791 )
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61185, 0.138154, 3.45607 )

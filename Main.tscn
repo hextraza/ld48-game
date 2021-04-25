@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Entities/Test_Environment2/Test_Environment2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Test_Environment/Test_Environment.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Interactable/Objects/ObjectDisappear/ObjectDisappear.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Interactable/Objects/Key_1/Key_1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/Interactable/Objects/ObjectMove/ObjectMove.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Environment" id=1]
@@ -35,7 +36,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0254822, 2.77047, 2.42725 )
 [node name="Test_Environment" parent="." instance=ExtResource( 3 )]
 
 [node name="ObjectDisappear" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.0223169, 0, 0, 0, 0.389326, 0, 0, 0, 0.0177042, 3.71925, -0.426553, -2.70511 )
+transform = Transform( 0.096142, 0, 0, 0, 0.619065, 0, 0, 0, 0.096142, 0.409886, -0.0719781, -4.62881 )
 
 [node name="ObjectMove" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.101762, 0, 0, 0, 0.101762, 0, 0, 0, 0.101762, 1.48294, -0.748146, -3.55409 )
+transform = Transform( 0.155417, 0, 0, 0, 0.820143, 0, 0, 0, 0.155417, 2.75808, 0.0824296, -3.64791 )
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61185, 0.138154, 3.45607 )
+
+[node name="Spatial2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.14791, -0.936627, 0 )

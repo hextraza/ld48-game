@@ -7,6 +7,7 @@ const JUMP_SPEED = 9
 const ACCEL = 20
 
 var dir = Vector3()
+var just_jumped = false
 
 const DEACCEL = 16
 const MAX_SLOPE_ANGLE = 40
@@ -44,10 +45,8 @@ func process_input(_delta):
 	
 	if Input.is_action_pressed("player_forward"):
 		input_movement_vector.y += 1
-		start_screen_shake()
 	if Input.is_action_pressed("player_backward"):
 		input_movement_vector.y -= 1
-		stop_screen_shake()
 	if Input.is_action_pressed("player_left"):
 		input_movement_vector.x -= 1
 	if Input.is_action_pressed("player_right"):
@@ -61,6 +60,7 @@ func process_input(_delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("player_jump"):
 			vel.y = JUMP_SPEED
+			just_jumped = true
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
@@ -91,8 +91,11 @@ func process_movement(delta):
 	vel.x = hvel.x
 	vel.z = hvel.z
 	
-	if !is_on_floor() or dir != Vector3(0,0,0):
+	# nightmare nightmare nightmare nightmare nightmare nightmare nightmare
+	if !is_on_floor() or dir != Vector3(0,0,0) or just_jumped == true:
 		vel = move_and_slide(vel, Vector3(0, 1, 0), true, 4, deg2rad(MAX_SLOPE_ANGLE))
+		just_jumped = false
+	
 
 
 func _input(event):

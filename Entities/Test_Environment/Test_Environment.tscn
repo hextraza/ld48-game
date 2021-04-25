@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Test_Environment/test_env.glb" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Elevator/Elevator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Elevator/Exit_Elevator.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 8.82613, 1, 0.499914 )
@@ -85,4 +86,9 @@ light_specular = 0.23
 spot_range = 25.1534
 
 [node name="Elevator" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.991637, 0.121987, -0.0421248, -0.129055, 0.937324, -0.32368, 0, 0.32641, 0.945228, 0.0693836, -2.87319, -37.2633 )
+transform = Transform( -9.77524e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -9.77524e-08, 7.22841, 0.838377, 0 )
+new_player_position = Vector3( -4.612, 0.138, 3.456 )
+next_elevator_reference = "World/Test_Environment/Elevator2"
+
+[node name="Elevator2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -2.62268e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.62268e-08, -4.44526, 0.849133, 3.30487 )

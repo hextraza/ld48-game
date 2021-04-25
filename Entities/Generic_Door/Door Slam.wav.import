@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Door Slam.wav-2b33f335900be47d30fba87d9a60a894.sample"
+
+[deps]
+
+source_file="res://Entities/Generic_Door/Door Slam.wav"
+dest_files=[ "res://.import/Door Slam.wav-2b33f335900be47d30fba87d9a60a894.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

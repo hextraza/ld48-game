@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Entities/Phone/Phone Base.glb" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Phone/PhoneReceiver.glb" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Interactable/Interactable.gd" type="Script" id=3]
 [ext_resource path="res://Entities/Phone/Phone.gd" type="Script" id=4]
+[ext_resource path="res://Entities/Phone/Unplugging Phone.wav" type="AudioStream" id=5]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1.06243, 1 )
@@ -23,5 +24,9 @@ shape = SubResource( 1 )
 
 [node name="PhoneReceiver" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1.54719 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 5 )
+unit_size = 5.0
 
 [connection signal="object_interacted" from="Interactable" to="." method="_on_Interactable_object_interacted"]

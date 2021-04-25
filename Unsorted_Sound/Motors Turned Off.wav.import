@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Motors Turned Off.wav-f721dbfe14843bfee8d2829d554a45a2.sample"
+
+[deps]
+
+source_file="res://Unsorted_Sound/Motors Turned Off.wav"
+dest_files=[ "res://.import/Motors Turned Off.wav-f721dbfe14843bfee8d2829d554a45a2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

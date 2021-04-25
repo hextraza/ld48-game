@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Elevator Close and Down.wav-f7e2f90273838037a715b9ad2bd9f2b4.sample"
+
+[deps]
+
+source_file="res://Entities/Elevator/Elevator Close and Down.wav"
+dest_files=[ "res://.import/Elevator Close and Down.wav-f7e2f90273838037a715b9ad2bd9f2b4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

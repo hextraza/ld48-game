@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Button Press.wav-f4698776cf01f5a4c0d5e72bf69e2210.sample"
+
+[deps]
+
+source_file="res://Entities/Alarm/Button Press.wav"
+dest_files=[ "res://.import/Button Press.wav-f4698776cf01f5a4c0d5e72bf69e2210.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

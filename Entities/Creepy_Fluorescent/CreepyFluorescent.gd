@@ -1,6 +1,7 @@
 extends SpotLight
 
 export var flickering = false
+onready var audio = $AudioStreamPlayer3D
 var rng = RandomNumberGenerator.new()
 var time_to_flicker = 0.5
 var next_attenuation_val = 0.5
@@ -9,6 +10,7 @@ var turning_off = false
 
 func _ready():
 	rng.randomize()
+	audio.play()
 
 func _process(delta):
 	if flickering == true:
@@ -22,12 +24,15 @@ func _process(delta):
 				elif next_attenuation_val == 0.02:
 					next_attenuation_val = 1
 					time_to_flicker = 0.1
+					audio.stream_paused = true
 				elif next_attenuation_val == 1:
 					next_attenuation_val = 0.01
 					time_to_flicker = 0.2
+					audio.stream_paused = false
 				elif next_attenuation_val == 0.01:
 					next_attenuation_val = 2
 					time_to_flicker = 0.1
+					audio.stream_paused = true
 				elif next_attenuation_val == 2:
 					next_attenuation_val = 300
 					time_to_flicker = 5
@@ -35,6 +40,7 @@ func _process(delta):
 					next_attenuation_val = rng.randf_range(0.5, 0.7)
 					time_to_flicker = rng.randf_range(0.1, 0.2)
 					turning_off = false
+					audio.stream_paused = false
 			else:
 				time_to_flicker = rng.randf_range(0.01, 0.2)
 				next_attenuation_val = rng.randf_range(0.01, 2)
@@ -50,8 +56,6 @@ func _process(delta):
 					time_to_flicker = -1
 				else:
 					time_to_flicker = rng.randf_range(0.01, 0.1)
-					
-				print(flicker_roll)
 			
 			self.spot_attenuation = next_attenuation_val
 			acc = 0

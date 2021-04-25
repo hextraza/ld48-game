@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Florescents Buzz.wav-2e8259c254bb4762435a67cec9953e51.sample"
+
+[deps]
+
+source_file="res://Entities/Creepy_Fluorescent/Florescents Buzz.wav"
+dest_files=[ "res://.import/Florescents Buzz.wav-2e8259c254bb4762435a67cec9953e51.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

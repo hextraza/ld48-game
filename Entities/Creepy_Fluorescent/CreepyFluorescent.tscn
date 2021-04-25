@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Entities/Creepy_Fluorescent/Hanging Lamp.glb" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Creepy_Fluorescent/CreepyFluorescent.gd" type="Script" id=2]
+
+[node name="CreepyFluorescent" type="SpotLight"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+light_color = Color( 0.831373, 0.921569, 1, 1 )
+shadow_enabled = true
+shadow_bias = 2.55
+shadow_contact = 1.0
+spot_range = 14.4142
+spot_angle = 67.1885
+script = ExtResource( 2 )
+
+[node name="Hanging Lamp" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, -0.0551081, -2.38094e-08, 0.544695 )

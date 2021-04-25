@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player/Radio/Radio.glb" type="PackedScene" id=1]
+[ext_resource path="res://Player/Radio/Radio.gd" type="Script" id=2]
+[ext_resource path="res://Player/Radio/RadioAlert.wav" type="AudioStream" id=3]
+[ext_resource path="res://Player/Radio/RadioWhiteNoise.wav" type="AudioStream" id=4]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.160228, -0.164597, 0.105505, 0, 0, 0, 0, 0, 0, 0.0010202, -0.112778, 0.106442, 0, 0, 0, 0, 0, 0, 0.121956, -0.0649109, 0.0801926, 0, 0, 0, 0, 0, 0, 0.174347, -0.0289119, 0.0398807, 0, 0, 0, 0, 0, 0, 0.188614, 0.00122366, 0.000903729 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[node name="Spatial" type="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00115967, -0.00405884, -0.000171661 )
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="." groups=[
+"radio",
+]]
+transform = Transform( 0.993587, 0.0636211, -0.0934617, -0.0684035, 0.996458, -0.0488889, 0.0900208, 0.054968, 0.99442, -0.160228, -0.164597, 0.105505 )
+rotation_mode = 0
+cubic_interp = false
+loop = false
+script = ExtResource( 2 )
+raising_speed = 1.0
+
+[node name="Radio" parent="PathFollow" instance=ExtResource( 1 )]
+transform = Transform( -4.37115e-10, 0, 0.00999999, 0, 0.01, 0, -0.01, 0, -4.37113e-10, 0, 0, 0 )
+
+[node name="RadioPendingNoise" type="AudioStreamPlayer" parent="PathFollow"]
+stream = ExtResource( 3 )
+
+[node name="RadioAudio" type="AudioStreamPlayer3D" parent="PathFollow"]
+
+[node name="RadioWhiteNoise" type="AudioStreamPlayer3D" parent="PathFollow"]
+stream = ExtResource( 4 )
+
+[connection signal="finished" from="PathFollow/RadioAudio" to="PathFollow" method="_on_RadioAudio_finished"]

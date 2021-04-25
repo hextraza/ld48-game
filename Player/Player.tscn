@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/RayCast/InteractRay.gd" type="Script" id=2]
+[ext_resource path="res://Player/Radio/Radio.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.249616
@@ -25,3 +26,6 @@ script = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.775693, 0 )
 shape = SubResource( 1 )
+
+[node name="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.31309e-07, 0, 3.004, 0, 3.004, 0, -3.004, 0, -1.31309e-07, 0.248017, 1.15528, -0.250894 )

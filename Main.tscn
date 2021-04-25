@@ -4,7 +4,7 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Test_Environment/Test_Environment.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Interactable/Objects/ObjectDisappear/ObjectDisappear.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Entities/Interactable/Objects/Key_1/Key_1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Key_1/Key_1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/Interactable/Objects/ObjectMove/ObjectMove.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Environment" id=1]

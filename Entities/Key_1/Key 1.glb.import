@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Key 1.glb-7d9b3832787aa3930dc51c056c53aaf3.scn"
+path="res://.import/Key 1.glb-9f1c620ead75bcbf71a966c7411bda4b.scn"
 
 [deps]
 
-source_file="res://Entities/Interactable/Objects/Key_1/Key 1.glb"
-dest_files=[ "res://.import/Key 1.glb-7d9b3832787aa3930dc51c056c53aaf3.scn" ]
+source_file="res://Entities/Key_1/Key 1.glb"
+dest_files=[ "res://.import/Key 1.glb-9f1c620ead75bcbf71a966c7411bda4b.scn" ]
 
 [params]
 

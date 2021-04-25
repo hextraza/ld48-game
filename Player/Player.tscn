@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/RayCast/InteractRay.gd" type="Script" id=2]
 [ext_resource path="res://Player/Radio/Radio.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/SightRayCast.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.249616
@@ -25,6 +26,15 @@ enabled = true
 cast_to = Vector3( 0, 0, -3 )
 collision_mask = 2
 script = ExtResource( 2 )
+
+[node name="SightRayCast" type="RayCast" parent="Rotation_Helper/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -1000 )
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource( 4 )
+state = 1
 
 [node name="Spatial" parent="Rotation_Helper" instance=ExtResource( 3 )]
 transform = Transform( -1.31309e-07, 0, 3.004, 0, 3.004, 0, -3.004, 0, -1.31309e-07, 0.327026, -0.2, -0.251 )

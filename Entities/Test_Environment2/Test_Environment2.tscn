@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Entities/Test_Environment/test_env.glb" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Creepy_Fluorescent/CreepyFluorescent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Alarm/Alarm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/IntakeAlarm/IntakeAlarm.tscn" type="PackedScene" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 8.82613, 1, 0.499914 )
@@ -17,6 +18,9 @@ extents = Vector3( 8.82613, 1, 0.499914 )
 
 [node name="test_env_mesh2" parent="Meshes" instance=ExtResource( 1 )]
 transform = Transform( 0.0084996, -0.999964, 0, 0.999964, 0.0084996, 0, 0, 0, 1, -7.98953, 3.26048, -2.43384 )
+
+[node name="test_env_mesh3" parent="Meshes" instance=ExtResource( 1 )]
+transform = Transform( -0.000607256, 0.0714427, -0.997445, 0.999964, 0.0084996, 0, 0.00847788, -0.997409, -0.0714453, 4.56293, 3.26048, -33.7289 )
 
 [node name="Floor_Collision" type="StaticBody" parent="."]
 
@@ -46,3 +50,6 @@ flickering = true
 
 [node name="Alarm" parent="." instance=ExtResource( 3 )]
 transform = Transform( -3.93403e-09, 0, 0.09, 0, 0.09, 0, -0.09, 0, -3.93403e-09, -6.44712, 0, 0 )
+
+[node name="Intake light" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.77987, 0.191908, -32.5554 )

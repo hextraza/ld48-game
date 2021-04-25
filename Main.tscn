@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Entities/Key_1/Key_1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/Interactable/Objects/ObjectMove/ObjectMove.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Flood_Door/SlammingDoor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/Key_2/Key_2.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 0.2, 0.168627, 0.2, 1 )
@@ -50,3 +51,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.14791, -0.936627, 0 )
 
 [node name="Spatial3" parent="." instance=ExtResource( 7 )]
 transform = Transform( -7.93671e-08, 0, 1.81571, 0, 1.81571, 0, -1.81571, 0, -7.93671e-08, -2.52577, -1.20263, 6.48416 )
+
+[node name="Spatial4" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47179, -0.929674, 0 )

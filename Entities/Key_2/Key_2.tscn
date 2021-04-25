@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Entities/Interactable/Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Key_2/Key 2.glb" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Key_2/Key_2.gd" type="Script" id=3]
+[ext_resource path="res://Entities/Key_1/PickUpSound.wav" type="AudioStream" id=4]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Key 2" parent="." instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-10, -0.01, 0, -4.37114e-10, 1.91069e-17, -0.01, 0.01, -4.37114e-10, -4.37114e-10, 0, 0, 0 )
+
+[node name="KinematicBody" parent="Key 2" instance=ExtResource( 1 )]
+transform = Transform( -2.66309e-07, -2.25083, -1.58457e-07, -1.85784e-07, -5.7056e-07, -4.25019, 1.07526, -1.00948e-07, -4.70009e-08, 0, 0, 0 )
+
+[node name="Spatial" parent="Key 2/KinematicBody" index="0"]
+transform = Transform( 15.665, 9.09495e-13, -3.5254e-14, 1.81899e-12, 15.665, 5.68434e-14, 6.23141e-13, -3.41061e-12, 15.665, 0, 0, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="object_interacted" from="Key 2/KinematicBody" to="." method="_on_StaticBody_object_interacted"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
+
+[editable path="Key 2/KinematicBody"]

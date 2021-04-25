@@ -26,6 +26,6 @@ func _on_KinematicBody_object_interacted():
 	state = DoorStates.OPENING
 
 func _on_Area_body_entered(_body):
-	if state == DoorStates.OPENED:
+	if state == DoorStates.OPENED or state == DoorStates.OPENING:
 		state = DoorStates.SLAMMING
 

@@ -21,17 +21,20 @@ func waiting() -> void:
 func pending_signal(audio: AudioStreamSample) -> void:
 	if audio:
 		radio_audio.stream = audio
-	is_pending = true
-	if not radio_pending_noise.playing:
-		radio_pending_noise.play()
-	waiting()
+		
+	match state:
+		RadioStates.WAITING, RadioStates.RAISING, RadioStates.LOWERING:
+			is_pending = true
+			if not radio_pending_noise.playing:
+				radio_pending_noise.play()
+		RadioStates.LISTENING:
+			is_pending = true
+			listening()
 	
 func raising() -> void:
 	state = RadioStates.RAISING
 	
 func lowering() -> void:
-	if state == RadioStates.LISTENING and is_pending == false:
-		radio_audio.stream = null
 	radio_white_noise.playing = false
 	radio_audio.playing = false
 	state = RadioStates.LOWERING
@@ -43,7 +46,9 @@ func listening() -> void:
 	state = RadioStates.LISTENING
 
 func finished() -> void:
+	radio_audio.stream = null
 	is_pending = false
+	state = RadioStates.LISTENING
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
@@ -72,9 +77,9 @@ func _process(delta) -> void:
 						waiting()
 					
 		RadioStates.LISTENING:
-			if not Input.is_action_pressed("player_radio"):
-				lowering()
-			
 			if radio_audio.stream:
-				if radio_audio.get_playback_position() >= radio_audio.stream.get_length() * 0.9:
+				if radio_audio.get_playback_position() >= radio_audio.stream.get_length():
 					finished()
+			else:
+				if not Input.is_action_pressed("player_radio"):
+					lowering()

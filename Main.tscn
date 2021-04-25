@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://Entities/Interactable/Objects/ObjectMove/ObjectMove.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Flood_Door/SlammingDoor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/Key_2/Key_2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/Control_Panel_2/LargeGeneratorIntakePanel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/Control_Panel_2/SmallGeneratorIntakePanel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/Control_Panel_3/ValvePanel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/Control_Panel_4/MotorPanel.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 0.2, 0.168627, 0.2, 1 )
@@ -43,14 +47,26 @@ transform = Transform( 0.096142, 0, 0, 0, 0.619065, 0, 0, 0, 0.096142, 0.409886,
 [node name="ObjectMove" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.155417, 0, 0, 0, 0.820143, 0, 0, 0, 0.155417, 2.75808, 0.0824296, -3.64791 )
 
-[node name="Spatial" type="Spatial" parent="."]
+[node name="OutputDoor" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61185, 0.138154, 3.45607 )
 
-[node name="Spatial2" parent="." instance=ExtResource( 5 )]
+[node name="AdminKey" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.14791, -0.936627, 0 )
 
-[node name="Spatial3" parent="." instance=ExtResource( 7 )]
+[node name="FloodDoor" parent="." instance=ExtResource( 7 )]
 transform = Transform( -7.93671e-08, 0, 1.81571, 0, 1.81571, 0, -1.81571, 0, -7.93671e-08, -2.52577, -1.20263, 6.48416 )
 
-[node name="Spatial4" parent="." instance=ExtResource( 8 )]
+[node name="ControlPanelKey" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47179, -0.929674, 0 )
+
+[node name="LargeIntakePanel" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.26908, 0, 0, 0, 0.26908, 0, 0, 0, 0.26908, 7.29888, 0.654227, 0.8649 )
+
+[node name="SmallIntakePanel" parent="." instance=ExtResource( 10 )]
+transform = Transform( 0.34185, 0, 0, 0, 0.34185, 0, 0, 0, 0.34185, 7.4566, -0.05129, 0.851341 )
+
+[node name="ValvePanel" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.91598, 0, -0.864807 )
+
+[node name="MotorPanel" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.35498, 0, -0.902675 )

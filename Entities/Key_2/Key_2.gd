@@ -9,7 +9,7 @@ func _on_StaticBody_object_interacted():
 		
 	var labels = get_tree().get_nodes_in_group("informational_label")
 	if labels:
-		labels[0].display("Obtained Control Panel Key")
+		labels[0].display("Obtained Control Panel key")
 	
 	self.visible = false
 	

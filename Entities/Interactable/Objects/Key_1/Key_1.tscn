@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Entities/Interactable/Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Interactable/Objects/Key_1/Key 1.glb" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Interactable/Objects/Key_1/Key_1.gd" type="Script" id=3]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Key 1" parent="." instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-10, -0.01, 0, -4.37114e-10, 1.91069e-17, -0.01, 0.01, -4.37114e-10, -4.37114e-10, 0, 0, 0 )
+
+[node name="StaticBody" parent="Key 1" instance=ExtResource( 1 )]
+transform = Transform( 28.9515, -1.16745e-06, -6.82334e-07, 4.15587e-06, 48.0389, 2.98255e-14, -6.82329e-07, 7.70035e-14, 13.3415, 0, 0, 0 )
+
+[connection signal="object_interacted" from="Key 1/StaticBody" to="." method="_on_StaticBody_object_interacted"]
+
+[editable path="Key 1/StaticBody"]

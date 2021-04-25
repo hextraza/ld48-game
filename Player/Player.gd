@@ -16,6 +16,8 @@ var rotation_helper
 
 var MOUSE_SENSITIVITY = 0.05
 
+var has_office_key := false
+
 
 func _ready():
 	camera = $Rotation_Helper/Camera

@@ -13,6 +13,7 @@ func get_class() -> String:
 signal object_interacted
 	
 # Variables
+export(bool) var active := true
 var interacted := false
 	
 func interact() -> void:

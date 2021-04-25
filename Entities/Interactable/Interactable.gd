@@ -1,4 +1,4 @@
-extends StaticBody
+extends KinematicBody
 
 class_name Interactable
 func get_class() -> String:

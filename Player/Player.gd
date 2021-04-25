@@ -17,6 +17,9 @@ var rotation_helper
 
 var MOUSE_SENSITIVITY = 0.05
 
+var rng = RandomNumberGenerator.new()
+var shake_intensity = 0
+var has_office_key := false
 
 func _ready():
 	camera = $Rotation_Helper/Camera
@@ -25,10 +28,14 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
+func _process(_delta):
+	_handle_screen_shake()
+
+
 func _physics_process(delta):
 	process_input(delta)
 	process_movement(delta)
-	
+
 
 func process_input(_delta):
 	dir = Vector3()
@@ -99,3 +106,20 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+
+
+func _handle_screen_shake():
+	if shake_intensity != 0:
+		camera.set_v_offset(shake_intensity / 10.0 * rng.randf_range(-1, 1))
+		camera.set_h_offset(shake_intensity / 10.0 * rng.randf_range(-1, 1))
+	else:
+		camera.set_v_offset(0)
+		camera.set_h_offset(0)
+
+
+func start_screen_shake(intensity = 1):
+	shake_intensity = intensity
+
+
+func stop_screen_shake():
+	shake_intensity = 0

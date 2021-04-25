@@ -22,7 +22,8 @@ func pending_signal(audio: AudioStreamSample) -> void:
 	if audio:
 		radio_audio.stream = audio
 	is_pending = true
-	radio_pending_noise.playing = true
+	if not radio_pending_noise.playing:
+		radio_pending_noise.play()
 	waiting()
 	
 func raising() -> void:
@@ -77,8 +78,3 @@ func _process(delta) -> void:
 			if radio_audio.stream:
 				if radio_audio.get_playback_position() >= radio_audio.stream.get_length() * 0.9:
 					finished()
-	
-
-
-func _on_RadioAudio_finished():
-	radio_audio.stream = null

@@ -11,7 +11,7 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[node name="Spatial" type="Path"]
+[node name="Radio" type="Path"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00115967, -0.00405884, -0.000171661 )
 curve = SubResource( 1 )
 

@@ -10,8 +10,8 @@ onready var radio_white_noise := $RadioWhiteNoise
 onready var radio_audio := $RadioAudio
 onready var player = get_tree().get_root().get_node("World/Player")
 var is_pending := false
-# please save me
-var intake_alarm = null
+
+signal radio_finished
 
 # States
 enum RadioStates {WAITING, RAISING, LISTENING, FINISHED, LOWERING}
@@ -51,14 +51,8 @@ func listening() -> void:
 func finished() -> void:
 	radio_audio.stream = null
 	is_pending = false
+	emit_signal("radio_finished")
 	state = RadioStates.LISTENING
-	if intake_alarm.state == 0:
-		intake_alarm.state = 1
-	
-func _ready():
-	var intakes = get_tree().get_nodes_in_group("intake_alarm_event")
-	if intakes:
-		intake_alarm = intakes[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:

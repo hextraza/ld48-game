@@ -5,8 +5,8 @@ var previous_collision_object: Object = null
 var interact_label: Label = null
 
 # States
-enum InteractableRay {INACTIVE, LOOKING, FOUND}
-export(InteractableRay) var state = InteractableRay.INACTIVE
+enum InteractableRay {LOOKING, FOUND}
+var state = InteractableRay.LOOKING
 
 # State transitions
 func found() -> void:
@@ -15,7 +15,6 @@ func found() -> void:
 		radios[0].pending_signal(sample)
 	
 	self.enabled = false
-	state = InteractableRay.INACTIVE
 
 func _physics_process(_delta) -> void:
 	match state:

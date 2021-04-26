@@ -16,7 +16,7 @@ signal activate_control_panel
 
 func _physics_process(delta):
 	if door_state == DoorState.OPENING or door_state == DoorState.CLOSING:
-		translate_vector.x = max_translate_dist * (delta/3.65)
+		translate_vector.x = 0.25 * (max_translate_dist * delta) # should take 4 secondsish
 		translated_dist += abs(translate_vector.x)
 		self.translate(translate_vector)
 		

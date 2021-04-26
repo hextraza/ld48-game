@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/RayCast/InteractRay.gd" type="Script" id=2]
 [ext_resource path="res://Player/Radio/Radio.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/SightRayCast.gd" type="Script" id=4]
+[ext_resource path="res://Player/Concrete Footsteps.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.249616
@@ -42,3 +43,7 @@ transform = Transform( -1.31309e-07, 0, 3.004, 0, 3.004, 0, -3.004, 0, -1.31309e
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.775693, 0 )
 shape = SubResource( 1 )
+
+[node name="FootstepAudio" type="AudioStreamPlayer3D" parent="CollisionShape"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.39066e-08, 0.775693 )
+stream = ExtResource( 5 )

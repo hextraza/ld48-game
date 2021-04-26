@@ -8,6 +8,7 @@ onready var player = get_tree().get_root().get_node("World/Player")
 onready var sight_ray_cast = player.get_node("Rotation_Helper/Camera/SightRayCast")
 onready var radio = get_tree().get_nodes_in_group("radio")[0]
 onready var elevator = get_tree().get_root().get_node("World/Dam/ElevatorOne")
+var set_input_disabled = true
 
 export(AudioStreamSample) var sample
 
@@ -17,6 +18,7 @@ func _ready():
 	yield(radio, "radio_finished")
 	
 	sight_ray_cast.enabled = true
+	self.queue_free()
 	
 func _process(delta):
 	if disable_fadein:
@@ -32,7 +34,9 @@ func _process(delta):
 	self.modulate = Color(0, 0, 0, clamp(1 - (acc/fade_in_time), 0, 1))
 
 	if acc >= fade_in_time:
-		player.input_disabled = false
+		if set_input_disabled:
+			player.input_disabled = false
+			set_input_disabled = false
 		yield(get_tree().create_timer(1), "timeout")
 		
 		var labels = get_tree().get_nodes_in_group("informational_label")
@@ -40,4 +44,4 @@ func _process(delta):
 			labels[0].display("Hold RMB to open your radio", 6)
 		
 		visible = false
-		self.queue_free()
+

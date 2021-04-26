@@ -1,6 +1,7 @@
 extends RayCast
 
 export(AudioStreamSample) var sample
+export(AudioStreamSample) var pending_noise_sample
 var previous_collision_object: Object = null
 var interact_label: Label = null
 
@@ -12,7 +13,11 @@ var state = InteractableRay.LOOKING
 func found() -> void:
 	var radios = get_tree().get_nodes_in_group("radio")
 	if radios:
+		radios[0].radio_pending_noise.stream = pending_noise_sample 
 		radios[0].pending_signal(sample)
+		var labels = get_tree().get_nodes_in_group("informational_label")
+		if labels:
+			labels[0].display("Hold RMB to open your radio", 6)
 	
 	self.enabled = false
 

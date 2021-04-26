@@ -1,6 +1,7 @@
 extends Spatial
 
 export (NodePath) var next_elevator
+export var door_open = false
 
 onready var player = get_tree().get_root().get_node("World/Player")
 

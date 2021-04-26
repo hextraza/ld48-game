@@ -17,9 +17,14 @@ fog_height_max = 20.0
 ssao_enabled = true
 ssao_radius = 21.78
 ssao_intensity = 2.25
-dof_blur_near_distance = 0.01
-dof_blur_near_transition = 2156.37
-dof_blur_near_amount = 0.84
+dof_blur_far_enabled = true
+glow_enabled = true
+glow_bloom = 1.0
+glow_hdr_scale = 4.0
+glow_bicubic_upscale = true
+adjustment_enabled = true
+adjustment_contrast = 1.26
+adjustment_saturation = 1.64
 
 [node name="World" type="Spatial"]
 

@@ -1,16 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Entities/Dam/dam_exterior.glb" type="PackedScene" id=1]
 
-[sub_resource type="Environment" id=1]
-ambient_light_color = Color( 1, 1, 1, 1 )
-fog_enabled = true
-fog_color = Color( 0, 0, 0, 0.992157 )
-fog_depth_begin = 1.0
-fog_depth_end = 20.0
-fog_depth_curve = 0.15932
-
 [node name="dam_exterior" instance=ExtResource( 1 )]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
-environment = SubResource( 1 )

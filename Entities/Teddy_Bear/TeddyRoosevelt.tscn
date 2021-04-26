@@ -15,6 +15,7 @@ script = ExtResource( 3 )
 [node name="KinematicBody" type="KinematicBody" parent="."]
 collision_layer = 3
 script = ExtResource( 2 )
+active = false
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
 transform = Transform( 6.84361, 0, 0, 0, 8.98474, 0, 0, 0, 4.81366, 0, 0, 0 )

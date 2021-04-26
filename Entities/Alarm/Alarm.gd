@@ -1,5 +1,6 @@
 extends Spatial
 
+export (AudioStreamSample) var sample = null
 onready var alarm_audio = $Alarm_Player
 onready var switch_audio = $Alarm_Switch
 onready var interactable = $"Cable Box/Interactable"
@@ -35,6 +36,10 @@ func _on_Interactable_object_interacted():
 	light.light_energy = 0.0
 	alarm_audio.stop()
 	switch_audio.play()
+	
+	var radios = get_tree().get_nodes_in_group("radio")
+	if radios:
+		radios[0].pending_signal(sample)
 
 
 func _on_AlarmArea_body_entered(_body):
@@ -60,8 +65,8 @@ func _on_SecondInteractable_object_interacted():
 	var tunnel_lights = get_tree().get_nodes_in_group("tunnel_lights")
 	for tunnel_light in tunnel_lights:
 		tunnel_light.light_energy = 0.0
-		tunnel_light.get_parent().light_energy = 0.0
-		tunnel_light.get_parent().get_node("AudioStreamPlayer3D").stop()
+		tunnel_light.get_node("SpotLight").light_energy = 0.0
+		tunnel_light.get_node("AudioStreamPlayer3D").stop()
 		
 	yield(get_tree().create_timer(1.0), "timeout")
 	dam_voice.play()

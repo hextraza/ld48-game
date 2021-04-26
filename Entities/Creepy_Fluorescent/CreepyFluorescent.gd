@@ -8,6 +8,8 @@ var next_attenuation_val = 0.5
 var acc = 0
 var turning_off = false
 
+onready var backlight = $SpotLight
+
 func _ready():
 	rng.randomize()
 	audio.play()
@@ -58,4 +60,5 @@ func _process(delta):
 					time_to_flicker = rng.randf_range(0.01, 0.1)
 			
 			self.spot_attenuation = next_attenuation_val
+			backlight.spot_attenuation = next_attenuation_val
 			acc = 0

@@ -1,5 +1,6 @@
 extends RayCast
 
+export(AudioStreamSample) var sample
 var previous_collision_object: Object = null
 var interact_label: Label = null
 
@@ -9,9 +10,10 @@ export(InteractableRay) var state = InteractableRay.INACTIVE
 
 # State transitions
 func found() -> void:
-	var labels = get_tree().get_nodes_in_group("informational_label")
-	if labels:
-		labels[0].display("Intake machine broke")
+	var radios = get_tree().get_nodes_in_group("radio")
+	if radios:
+		radios[0].pending_signal(sample)
+	
 	self.enabled = false
 	state = InteractableRay.INACTIVE
 

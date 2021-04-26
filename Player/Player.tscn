@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/RayCast/InteractRay.gd" type="Script" id=2]
 [ext_resource path="res://Player/Radio/Radio.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/SightRayCast.gd" type="Script" id=4]
 [ext_resource path="res://Player/Concrete Footsteps.wav" type="AudioStream" id=5]
+[ext_resource path="res://Player/Radio/RadioClips/Radio Op 2.wav" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.249616
@@ -35,6 +36,7 @@ collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource( 4 )
+sample = ExtResource( 6 )
 state = 1
 
 [node name="Spatial" parent="Rotation_Helper" instance=ExtResource( 3 )]

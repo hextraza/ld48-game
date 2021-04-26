@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Entities/Dam/dam_exterior.glb" type="PackedScene" id=1]
+[ext_resource path="res://Entities/IntakeAlarm/IntakeAlarm.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -14,3 +15,15 @@ fog_depth_curve = 0.15932
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
 environment = SubResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="." index="10"]
+transform = Transform( 0.630797, 0, 0, 0, 45.6816, 0, 0, 0, 0.630797, 0, 252.773, -575.765 )
+height = 2.0
+
+[node name="Spatial" parent="." index="11" instance=ExtResource( 2 )]
+transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0.0411467, 298.545, -575.681 )
+
+[node name="Area" parent="Spatial" index="2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+
+[editable path="Spatial"]

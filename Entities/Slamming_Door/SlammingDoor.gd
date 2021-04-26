@@ -7,6 +7,8 @@ export(float) var door_speed := 1.0
 var rotated := 0.0
 onready var open_audio := $"Generic Door/DoorOpenAudio"
 onready var slam_audio := $"Generic Door/DoorSlamAudio"
+onready var door := $"Generic Door/KinematicBody"
+onready var slam_area := get_parent().get_node("Area")
 
 func _physics_process(delta):
 	match state:
@@ -26,11 +28,15 @@ func _physics_process(delta):
 
 func _on_KinematicBody_object_interacted():
 	open_audio.play()
+	if state != DoorStates.SLAMMING and state != DoorStates.SLAMMED:
+		slam_area.monitoring = true
 	state = DoorStates.OPENING
 
 func _on_Area_body_entered(_body):
-	if state == DoorStates.OPENED or state == DoorStates.OPENING:
-		open_audio.stop()
-		slam_audio.play()
-		state = DoorStates.SLAMMING
+	yield(get_tree().create_timer(2.0), "timeout")
+	open_audio.stop()
+	slam_audio.play()
+	state = DoorStates.SLAMMING
+	door.interacted = false
+	slam_area.queue_free()
 

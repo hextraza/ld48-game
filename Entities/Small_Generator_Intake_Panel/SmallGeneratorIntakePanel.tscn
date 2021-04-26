@@ -12,5 +12,6 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 
 [node name="KinematicBody" parent="Control Panel 2" instance=ExtResource( 2 )]
 transform = Transform( 36.4869, 0, 0, 0, 30.9124, 0, 0, 0, 6.00186, 0, 1.31148, 0 )
+active = false
 
 [connection signal="object_interacted" from="Control Panel 2/KinematicBody" to="." method="_on_KinematicBody_object_interacted"]

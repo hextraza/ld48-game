@@ -21,6 +21,7 @@ var rng = RandomNumberGenerator.new()
 var shake_intensity = 0
 var has_office_key := false
 var has_control_panel_key := false
+var input_disabled = true
 
 func _ready():
 	camera = $Rotation_Helper/Camera
@@ -34,7 +35,8 @@ func _process(_delta):
 
 
 func _physics_process(delta):
-	process_input(delta)
+	if !input_disabled:
+		process_input(delta)
 	process_movement(delta)
 
 
@@ -100,7 +102,7 @@ func process_movement(delta):
 
 
 func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and !input_disabled:
 		rotation_helper.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -1))
 		self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
 		

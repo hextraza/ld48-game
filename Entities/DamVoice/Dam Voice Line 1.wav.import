@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Dam Voice Line 1.wav-a5aa5f14b1e5cefca5beae50710a9c2b.sample"
+
+[deps]
+
+source_file="res://Entities/DamVoice/Dam Voice Line 1.wav"
+dest_files=[ "res://.import/Dam Voice Line 1.wav-a5aa5f14b1e5cefca5beae50710a9c2b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

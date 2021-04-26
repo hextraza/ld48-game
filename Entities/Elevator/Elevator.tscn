@@ -68,6 +68,7 @@ stream = ExtResource( 7 )
 transform = Transform( -6.51683e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -6.51683e-09, -1.28268, -1.04636, 0.385608 )
 collision_layer = 3
 script = ExtResource( 3 )
+active = false
 
 [node name="control_panel" parent="Control Panel" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0 )
@@ -76,6 +77,7 @@ transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0 )
 transform = Transform( 6.62054, 0, 9.15703e-07, 0, 5.12201, 0, 9.15703e-07, 0, 1, 0, 0, 0 )
 shape = SubResource( 3 )
 
+[connection signal="activate_control_panel" from="Door" to="Control Panel" method="_on_Door_activate_control_panel"]
 [connection signal="elevate" from="Door" to="." method="_on_Door_elevate"]
 [connection signal="object_interacted" from="Door/KinematicBody" to="Door" method="_on_KinematicBody_object_interacted"]
 [connection signal="object_interacted" from="Control Panel" to="Door" method="_on_Control_Panel_object_interacted"]

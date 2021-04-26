@@ -19,3 +19,7 @@ var interacted := false
 func interact() -> void:
 	interacted = true
 	emit_signal("object_interacted")
+
+
+func _on_Door_activate_control_panel():
+	self.active = true

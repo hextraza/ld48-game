@@ -14,7 +14,6 @@
 [ext_resource path="res://Entities/File_Cabinet_v2/File_Cabinet_2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Entities/Key_1/Key_1.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Entities/Teddy_Bear/TeddyRoosevelt.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Water Ambiance.wav" type="AudioStream" id=10]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.0666667, 0.0666667, 0.0705882, 1 )
@@ -189,14 +188,12 @@ transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 7.85517, 13.3777, 18.
 
 [node name="OutportRiverNoise" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7219, 16.8638, -301.108 )
-stream = ExtResource( 10 )
 unit_size = 82.4
 autoplay = true
 bus = "OutdoorsTop"
 
 [node name="ReservoirRiverNoise" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69698, 253.216, -549.288 )
-stream = ExtResource( 10 )
 unit_size = 35.1
 autoplay = true
 bus = "OutdoorsTop"

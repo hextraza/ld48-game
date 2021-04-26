@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -6,7 +6,50 @@
 [ext_resource path="res://FadeIn.gd" type="Script" id=4]
 [ext_resource path="res://Player/Radio/RadioClips/Radio Op 1.wav" type="AudioStream" id=5]
 
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.0666667, 0.0666667, 0.0705882, 1 )
+sky_horizon_color = Color( 0.305882, 0.215686, 0.176471, 1 )
+sky_curve = 0.18
+ground_curve = 0.662572
+ground_energy = 0.0
+sun_color = Color( 0.921569, 0.447059, 0.133333, 1 )
+sun_latitude = 180.0
+sun_energy = 19.15
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_camera_feed_id = 3
+ambient_light_color = Color( 1, 1, 1, 1 )
+fog_enabled = true
+fog_color = Color( 0.14902, 0.14902, 0.14902, 0.988235 )
+fog_sun_color = Color( 1, 0.439216, 0.168627, 1 )
+fog_sun_amount = 0.37
+fog_depth_enabled = false
+fog_transmit_enabled = true
+fog_transmit_curve = 0.31864
+fog_height_enabled = true
+fog_height_min = 842.0
+fog_height_max = -300.0
+ssao_enabled = true
+ssao_radius = 21.78
+ssao_intensity = 2.25
+dof_blur_far_enabled = true
+dof_blur_far_distance = 1000.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 0.1
+glow_enabled = true
+glow_bloom = 1.0
+glow_hdr_scale = 4.0
+glow_bicubic_upscale = true
+adjustment_enabled = true
+adjustment_contrast = 1.26
+adjustment_saturation = 1.58
+
 [node name="World" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
 
 [node name="UI" parent="." instance=ExtResource( 1 )]
 

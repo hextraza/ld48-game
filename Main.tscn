@@ -61,6 +61,7 @@ environment = SubResource( 2 )
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0.0254822, 300.273, -514.865 )
 
 [node name="FadeIn" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
@@ -68,10 +69,10 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-disable_fadein = true
 sample = ExtResource( 5 )
 
 [node name="Dam" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00686109, -0.000704765, -0.00468838 )
 
 [node name="ElevatorOne" parent="Dam" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, -498 )

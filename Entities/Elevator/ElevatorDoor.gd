@@ -39,6 +39,7 @@ func _physics_process(delta):
 		door_state = DoorState.OCCUPIED
 		translated_dist = 0
 		
+		yield(get_tree().create_timer(2.0), "timeout")
 		player.start_screen_shake()
 		player.input_disabled = false
 		

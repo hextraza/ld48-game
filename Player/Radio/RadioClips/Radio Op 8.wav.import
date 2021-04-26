@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Radio Op 8.wav-f12eec9b3452ccd7259053cad004eccb.sample"
+
+[deps]
+
+source_file="res://Player/Radio/RadioClips/Radio Op 8.wav"
+dest_files=[ "res://.import/Radio Op 8.wav-f12eec9b3452ccd7259053cad004eccb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

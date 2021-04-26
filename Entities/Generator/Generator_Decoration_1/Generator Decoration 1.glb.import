@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Generator Decoration 1.glb-2dad01a7c9eb5ea114c5a31d714de787.scn"
+path="res://.import/Generator Decoration 1.glb-291ec5a18865c1c261a0b7e47e0b86ea.scn"
 
 [deps]
 
-source_file="res://Entities/Generator_Decoration_1/Generator Decoration 1.glb"
-dest_files=[ "res://.import/Generator Decoration 1.glb-2dad01a7c9eb5ea114c5a31d714de787.scn" ]
+source_file="res://Entities/Generator/Generator_Decoration_1/Generator Decoration 1.glb"
+dest_files=[ "res://.import/Generator Decoration 1.glb-291ec5a18865c1c261a0b7e47e0b86ea.scn" ]
 
 [params]
 

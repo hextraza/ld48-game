@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Generator Restarts.wav-59cf1cdd76bfdd125ef6b81860ee1dde.sample"
+
+[deps]
+
+source_file="res://Entities/Generator/Generator Restarts.wav"
+dest_files=[ "res://.import/Generator Restarts.wav-59cf1cdd76bfdd125ef6b81860ee1dde.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Fence.glb-4bb8d2163580c24add8e93b9bab0ba3a.scn"
+path="res://.import/dam_exterior.glb-2a8ab5a38419cac5d197373262cb854f.scn"
 
 [deps]
 
-source_file="res://Environments/Dam/Fence.glb"
-dest_files=[ "res://.import/Fence.glb-4bb8d2163580c24add8e93b9bab0ba3a.scn" ]
+source_file="res://Entities/Dam/dam_exterior.glb"
+dest_files=[ "res://.import/dam_exterior.glb-2a8ab5a38419cac5d197373262cb854f.scn" ]
 
 [params]
 

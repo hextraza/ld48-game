@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/outlet.png-4032c9af8a9b6ccb2c654eb1bd7ec450.stex"
+path="res://.import/terrain.png-09424359e86d403076de4e88be859ab7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environments/Dam/outlet.png"
-dest_files=[ "res://.import/outlet.png-4032c9af8a9b6ccb2c654eb1bd7ec450.stex" ]
+source_file="res://Entities/Dam/terrain.png"
+dest_files=[ "res://.import/terrain.png-09424359e86d403076de4e88be859ab7.stex" ]
 
 [params]
 

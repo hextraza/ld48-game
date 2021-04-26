@@ -28,7 +28,10 @@ func _physics_process(delta):
 	elif door_state == DoorState.CLOSING && translated_dist > abs(max_translate_dist):
 		door_state = DoorState.OCCUPIED
 		translated_dist = 0
+		
 		player.start_screen_shake()
+		player.input_disabled = false
+		
 		emit_signal("elevate")
 
 func _on_KinematicBody_object_interacted():
@@ -42,3 +45,5 @@ func _on_Control_Panel_object_interacted():
 		door_state = DoorState.CLOSING
 		max_translate_dist = 2.5
 		elevator_audio.play()
+		
+		player.input_disabled = true

@@ -60,5 +60,5 @@ func _process(delta):
 					time_to_flicker = rng.randf_range(0.01, 0.1)
 			
 			self.spot_attenuation = next_attenuation_val
-			backlight.spot_attenuation = next_attenuation_val
+			backlight.omni_attenuation = next_attenuation_val
 			acc = 0

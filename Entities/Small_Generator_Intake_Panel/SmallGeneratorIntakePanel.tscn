@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Entities/Control_Panel_2/Control Panel 2.glb" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Interactable/Interactable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Small_Generator_Intake_Panel/SmallGeneratorIntakePanel.gd" type="Script" id=3]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Control Panel 2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+
+[node name="KinematicBody" parent="Control Panel 2" instance=ExtResource( 2 )]
+transform = Transform( 36.4869, 0, 0, 0, 30.9124, 0, 0, 0, 6.00186, 0, 1.31148, 0 )
+
+[connection signal="object_interacted" from="Control Panel 2/KinematicBody" to="." method="_on_KinematicBody_object_interacted"]

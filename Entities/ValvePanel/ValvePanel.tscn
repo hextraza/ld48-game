@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Control_Panel_3/Control Panel 3.glb" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Interactable/Interactable.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/ValvePanel/ValvePanel.gd" type="Script" id=3]
+[ext_resource path="res://Entities/ValvePanel/Valves Sealing.wav" type="AudioStream" id=4]
+[ext_resource path="res://Entities/Alarm/Button Press.wav" type="AudioStream" id=5]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 3 )
@@ -12,5 +14,12 @@ transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
 
 [node name="KinematicBody" parent="Control Panel 3" instance=ExtResource( 2 )]
 transform = Transform( 50, 0, 0, 0, 40, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="ButtonAudio" type="AudioStreamPlayer3D" parent="Control Panel 3"]
+stream = ExtResource( 5 )
+
+[node name="ValveAudio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 2.43366, -1.33478 )
+stream = ExtResource( 4 )
 
 [connection signal="object_interacted" from="Control Panel 3/KinematicBody" to="." method="_on_KinematicBody_object_interacted"]

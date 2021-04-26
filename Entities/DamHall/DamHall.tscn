@@ -1,9 +1,184 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Entities/DamHall/dam_hall.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Generic_Door/GenericDoor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Creepy_Fluorescent/CreepyFluorescent.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/DamHall/SpookyLight.gd" type="Script" id=4]
+[ext_resource path="res://Player/Radio/RadioClips/Radio Op 7.wav" type="AudioStream" id=5]
+[ext_resource path="res://Player/Radio/RadioClips/Radio Op 8.wav" type="AudioStream" id=6]
+[ext_resource path="res://Entities/Alarm/Alarm.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/Slamming_Door/SlammingDoor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/DamVoice/Dam Voice Line 1.wav" type="AudioStream" id=9]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 2.2789, 0.629783, 2.68213 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.623213, 2.47112, 2.6321 )
 
 [node name="DamHall" instance=ExtResource( 1 )]
 
 [node name="Generic Door" parent="." index="3" instance=ExtResource( 2 )]
 transform = Transform( -0.575933, 0, -0.817497, 0, 1, 0, 0.817497, 0, -0.575933, -18.5, 0, 10.4392 )
+
+[node name="SpookyLight" parent="." index="5" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -24.7442, 2.18031, 0.101816 )
+flicker_intensity = 10.0
+
+[node name="SpotLight" parent="SpookyLight" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Area" type="Area" parent="SpookyLight" index="3"]
+transform = Transform( 0.917553, -0.397612, -1.73802e-08, 0.397612, 0.917553, -3.60385e-09, 1.73802e-08, -3.60385e-09, 1, -0.78705, -6.69453, 1.19209e-06 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+first_sample = ExtResource( 5 )
+second_sample = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="SpookyLight/Area" index="0"]
+transform = Transform( 0.856501, 0.516145, 2.25614e-08, -0.516145, 0.856501, -6.27253e-09, -2.25614e-08, -6.27253e-09, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="AlarmDoor" parent="." index="6" instance=ExtResource( 8 )]
+transform = Transform( 1.19878, 0, 0, 0, 1.31295, 0, 0, 0, 1, 0.506108, -0.00265995, -21.5516 )
+
+[node name="KinematicBody" parent="AlarmDoor/RotationHelper/Generic Door" index="2"]
+active = false
+
+[node name="Area" parent="AlarmDoor" index="1"]
+monitoring = false
+
+[node name="Alarm" parent="." index="7" instance=ExtResource( 7 )]
+transform = Transform( 0.0739724, 0, 0, 0, 0.0739724, 0, 0, 0, 0.0739724, -0.0319507, 0.868572, -25.8081 )
+
+[node name="Interactable" parent="Alarm/Cable Box" index="1"]
+active = false
+
+[node name="Alarm_Player" parent="Alarm" index="3"]
+transform = Transform( 13.5186, 0, 0, 0, 13.5186, 0, 0, 0, 13.5186, -0.0100327, 0.0738468, -0.0359497 )
+attenuation_model = 2
+unit_db = 0.0
+max_distance = 26.0
+
+[node name="Flourescent" parent="." index="8" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -16.2157, 2.25631, -16.3257 )
+
+[node name="SpotLight" parent="Flourescent" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent4" parent="." index="9" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.03334, 2.25162, -19.7737 )
+
+[node name="SpotLight" parent="Flourescent4" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent12" parent="." index="10" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.163071, 2.25162, -23.242 )
+
+[node name="SpotLight" parent="Flourescent12" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent5" parent="." index="11" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8.67663, 2.21226, -19.5775 )
+
+[node name="SpotLight" parent="Flourescent5" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent6" parent="." index="12" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 17.1242, 2.21226, -15.8069 )
+
+[node name="SpotLight" parent="Flourescent6" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent7" parent="." index="13" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 22.8316, 2.21226, -9.2892 )
+
+[node name="SpotLight" parent="Flourescent7" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent8" parent="." index="14" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 24.8518, 2.21226, -2.09666 )
+
+[node name="SpotLight" parent="Flourescent8" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent9" parent="." index="15" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 24.981, 2.21226, 6.09452 )
+
+[node name="SpotLight" parent="Flourescent9" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent10" parent="." index="16" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 25.1703, 2.21226, 12.3043 )
+
+[node name="Flourescent11" parent="." index="17" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 25.0998, 2.21226, 21.1308 )
+
+[node name="SpotLight" parent="Flourescent11" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent2" parent="." index="18" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -22.701, 2.25989, -8.83637 )
+
+[node name="SpotLight" parent="Flourescent2" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent3" parent="." index="19" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -24.9684, 2.26029, 12.7916 )
+
+[node name="SpotLight" parent="Flourescent3" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="Flourescent13" parent="." index="20" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -24.9684, 2.26029, 22.5214 )
+
+[node name="SpotLight" parent="Flourescent13" index="2" groups=[
+"tunnel_lights",
+]]
+
+[node name="AlarmArea" type="Area" parent="." index="21"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65772, 0.559424, -19.6438 )
+monitoring = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="AlarmArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="DamVoice1" type="AudioStreamPlayer3D" parent="." index="22"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58059, -17.0995 )
+stream = ExtResource( 9 )
+unit_db = 25.0
+
+[connection signal="body_exited" from="SpookyLight/Area" to="SpookyLight/Area" method="_on_Area_body_exited"]
+[connection signal="body_entered" from="AlarmArea" to="Alarm" method="_on_AlarmArea_body_entered"]
+
+[editable path="SpookyLight"]
+[editable path="AlarmDoor"]
+[editable path="Alarm"]
+[editable path="Flourescent"]
+[editable path="Flourescent4"]
+[editable path="Flourescent12"]
+[editable path="Flourescent5"]
+[editable path="Flourescent6"]
+[editable path="Flourescent7"]
+[editable path="Flourescent8"]
+[editable path="Flourescent9"]
+[editable path="Flourescent10"]
+[editable path="Flourescent11"]
+[editable path="Flourescent2"]
+[editable path="Flourescent3"]
+[editable path="Flourescent13"]

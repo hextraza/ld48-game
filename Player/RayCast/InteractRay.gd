@@ -28,6 +28,8 @@ func _ready() -> void:
 	var interact_labels = get_tree().get_nodes_in_group("interact_label")
 	if interact_labels:
 		interact_label = interact_labels[0]
+		
+	add_exception(get_parent().get_parent().get_parent())
 
 func _physics_process(_delta) -> void:
 	match state:

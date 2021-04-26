@@ -9,7 +9,7 @@ onready var audio = $KinematicBody/AudioStreamPlayer
 
 func _physics_process(delta):
 	if waiting == false:
-		translate_vector.x = max_translate_dist * (delta/3.7)
+		translate_vector.x = 0.25 * (max_translate_dist * delta) # about 4 secondsish
 		translated_dist += abs(translate_vector.x)
 		self.translate(translate_vector)
 		

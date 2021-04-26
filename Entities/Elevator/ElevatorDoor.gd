@@ -15,9 +15,9 @@ var translated_dist = 0
 signal elevate
 signal activate_control_panel
 
-
 func _physics_process(delta):
 	if elevator != null && elevator.door_open:
+		$KinematicBody.active = false
 		_on_KinematicBody_object_interacted()
 		
 	if door_state == DoorState.OPENING or door_state == DoorState.CLOSING:

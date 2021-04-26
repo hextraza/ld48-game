@@ -7,6 +7,7 @@ var time_til_fade = 3.5
 onready var player = get_tree().get_root().get_node("World/Player")
 onready var sight_ray_cast = player.get_node("Rotation_Helper/Camera/SightRayCast")
 onready var radio = get_tree().get_nodes_in_group("radio")[0]
+onready var elevator = get_tree().get_root().get_node("World/Dam/ElevatorOne")
 
 export(AudioStreamSample) var sample
 

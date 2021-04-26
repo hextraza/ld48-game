@@ -113,8 +113,8 @@ func _input(event):
 
 func _handle_screen_shake():
 	if shake_intensity != 0:
-		camera.set_v_offset(shake_intensity / 10.0 * rng.randf_range(-1, 1))
-		camera.set_h_offset(shake_intensity / 10.0 * rng.randf_range(-1, 1))
+		camera.set_v_offset(shake_intensity / 100.0 * rng.randf_range(-1, 1))
+		camera.set_h_offset(shake_intensity / 100.0 * rng.randf_range(-1, 1))
 	else:
 		camera.set_v_offset(0)
 		camera.set_h_offset(0)

@@ -7,6 +7,7 @@ onready var player = get_tree().get_root().get_node("World/Player")
 
 func _on_Door_elevate():
 	yield($Door/KinematicBody/AudioStreamPlayer, "finished")
+	player.stop_screen_shake()
 	player.translation = new_player_position
 	
 	var t = Timer.new()

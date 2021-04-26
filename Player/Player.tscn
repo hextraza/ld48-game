@@ -29,7 +29,9 @@ enabled = true
 cast_to = Vector3( 0, 0, -3 )
 script = ExtResource( 2 )
 
-[node name="SightRayCast" type="RayCast" parent="Rotation_Helper/Camera"]
+[node name="SightRayCast" type="RayCast" parent="Rotation_Helper/Camera" groups=[
+"intake_alarm_event",
+]]
 enabled = true
 cast_to = Vector3( 0, 0, -1000 )
 collision_mask = 8
@@ -37,7 +39,6 @@ collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource( 4 )
 sample = ExtResource( 6 )
-state = 1
 
 [node name="Spatial" parent="Rotation_Helper" instance=ExtResource( 3 )]
 transform = Transform( -1.31309e-07, 0, 3.004, 0, 3.004, 0, -3.004, 0, -1.31309e-07, 0.327026, -0.2, -0.251 )

@@ -34,7 +34,6 @@ gdscript/warnings/treat_warnings_as_errors=true
 window/size/width=1920
 window/size/height=1080
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [input]
 

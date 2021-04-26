@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,14 @@
 [ext_resource path="res://Entities/Key_1/Key_1.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Entities/Teddy_Bear/TeddyRoosevelt.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Player/Radio/RadioClips/Radio Op 5.wav" type="AudioStream" id=15]
+[ext_resource path="res://Entities/DamHall/SpookyLight.gd" type="Script" id=16]
+[ext_resource path="res://Player/Radio/RadioClips/Radio Op 7.wav" type="AudioStream" id=17]
+[ext_resource path="res://Entities/DamVoice/Dam Voice Line 1.wav" type="AudioStream" id=18]
+[ext_resource path="res://Player/Radio/RadioClips/Radio Op 8.wav" type="AudioStream" id=19]
+[ext_resource path="res://Entities/Generic_Door/GenericDoor.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Entities/Alarm/Alarm.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Entities/Slamming_Door/SlammingDoor.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Player/Radio/RadioClips/Radio Op 9.wav" type="AudioStream" id=23]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.0666667, 0.0666667, 0.0705882, 1 )
@@ -58,6 +66,12 @@ adjustment_saturation = 1.58
 
 [sub_resource type="BoxShape" id=3]
 
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 2.2789, 0.629783, 2.68213 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.623213, 2.47112, 2.6321 )
+
 [node name="World" type="Spatial"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -66,7 +80,7 @@ environment = SubResource( 2 )
 [node name="UI" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0.0254822, 299.804, -514.865 )
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 14.2886, -99.3197, 24.8984 )
 
 [node name="FadeIn" type="ColorRect" parent="."]
 modulate = Color( 0, 0, 0, 1 )
@@ -122,7 +136,9 @@ flickering = true
 [node name="Admin Room" type="Spatial" parent="DamHall"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34303, -11.7157, -1.46399 )
 
-[node name="CreepyFluorescent" parent="DamHall/Admin Room" instance=ExtResource( 8 )]
+[node name="CreepyFluorescent" parent="DamHall/Admin Room" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.26739, 14.4142, 21.4465 )
 
 [node name="Table" parent="DamHall/Admin Room" instance=ExtResource( 10 )]
@@ -188,6 +204,112 @@ transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08
 [node name="Teddy" parent="DamHall/Admin Room" instance=ExtResource( 14 )]
 transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 7.85517, 13.3777, 18.8888 )
 
+[node name="Generic Door2" parent="DamHall" instance=ExtResource( 20 )]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 10.5, 0, 23.5 )
+
+[node name="SpookyLight2" parent="DamHall" instance=ExtResource( 8 )]
+transform = Transform( 0.021937, -0.999759, -4.37009e-08, 0, -4.37114e-08, 1, -0.999759, -0.021937, -9.58898e-10, 1.01125, 2.18031, 24.9748 )
+flicker_intensity = 10.0
+
+[node name="Area" type="Area" parent="DamHall/SpookyLight2"]
+transform = Transform( 0.854196, -0.519951, -2.27278e-08, 0.519951, 0.854196, -6.37331e-09, 2.27278e-08, -6.37328e-09, 1, -0.415417, -6.52771, 0 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 16 )
+first_sample = ExtResource( 17 )
+second_sample = ExtResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DamHall/SpookyLight2/Area"]
+transform = Transform( 0.856501, 0.516145, 2.25614e-08, -0.516145, 0.856501, -6.27253e-09, -2.25614e-08, -6.27253e-09, 1, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="AlarmDoor" parent="DamHall" instance=ExtResource( 22 )]
+transform = Transform( -0.0209634, 0, -0.999847, 0, 1.31295, 0, 1.1986, 0, -0.0174873, -21.6482, -0.00265983, 0.451752 )
+
+[node name="KinematicBody" parent="DamHall/AlarmDoor/RotationHelper/Generic Door" index="2"]
+active = false
+
+[node name="Alarm" parent="DamHall" instance=ExtResource( 21 )]
+transform = Transform( -0.00137362, 0, 0.0739597, 0, 0.0739724, 0, -0.0739597, 0, -0.00137362, -25.828, 0.868572, 0.0611416 )
+sample = ExtResource( 23 )
+
+[node name="Interactable" parent="DamHall/Alarm/Cable Box" index="1"]
+active = false
+
+[node name="Flourescent15" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, 11.4401, 2.25162, 24.9887 )
+
+[node name="Flourescent16" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, -5.52884, 2.25162, 24.2118 )
+
+[node name="Flourescent17" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, -11.5013, 2.21226, 21.2717 )
+
+[node name="Flourescent18" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, -17.1573, 2.21226, 14.9952 )
+
+[node name="Flourescent19" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, -23.0365, 2.21226, 0.417361 )
+
+[node name="Flourescent20" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, -19.3188, 2.21226, 9.91774 )
+
+[node name="Flourescent21" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, -19.9834, 2.21226, 4.61798 )
+
+[node name="Flourescent22" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, -19.8548, 2.21226, -5.69377 )
+
+[node name="Flourescent23" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, -18.2826, 2.21226, -12.9461 )
+
+[node name="Flourescent24" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, 19.5031, 2.25989, 25.0974 )
+
+[node name="Flourescent25" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, -11.1206, 2.26029, -21.9728 )
+
+[node name="Flourescent26" parent="DamHall" groups=[
+"tunnel_lights",
+] instance=ExtResource( 8 )]
+transform = Transform( -0.929268, -0.369406, -1.61473e-08, 0, -4.37114e-08, 1, -0.369406, 0.929268, 4.06196e-08, 30.3374, 2.26029, -5.85706 )
+
+[node name="AlarmArea" type="Area" parent="DamHall"]
+transform = Transform( 0.181515, 0, 0.983388, 0, 1, 0, -0.983388, 0, 0.181515, -20.0213, 0.69384, -3.5858 )
+monitoring = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="DamHall/AlarmArea"]
+shape = SubResource( 5 )
+
+[node name="DamVoice1" type="AudioStreamPlayer3D" parent="DamHall"]
+transform = Transform( -0.929268, 0, 0.369406, 0, 1, 0, -0.369406, 0, -0.929268, -6.31666, 2.58059, 15.89 )
+stream = ExtResource( 18 )
+unit_db = 61.924
+
 [node name="OutportRiverNoise" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7219, 16.8638, -301.108 )
 unit_size = 82.4
@@ -199,3 +321,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69698, 253.216, -549.288 )
 unit_size = 35.1
 autoplay = true
 bus = "OutdoorsTop"
+
+[connection signal="body_exited" from="DamHall/SpookyLight2/Area" to="DamHall/SpookyLight2/Area" method="_on_Area_body_exited"]
+[connection signal="body_entered" from="DamHall/AlarmArea" to="DamHall/Alarm" method="_on_AlarmArea_body_entered"]
+
+[editable path="DamHall/AlarmDoor"]
+[editable path="DamHall/Alarm"]

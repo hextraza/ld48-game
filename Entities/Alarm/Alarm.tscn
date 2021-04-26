@@ -35,8 +35,9 @@ omni_attenuation = 2.54913
 [node name="Alarm_Player" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0100327, 0.0738468, -0.0359344 )
 stream = ExtResource( 5 )
-unit_db = -80.0
+attenuation_model = 2
 unit_size = 10.0
+max_distance = 25.0
 
 [node name="Alarm_Switch" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 6 )

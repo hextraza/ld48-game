@@ -1,6 +1,7 @@
 extends SpotLight
 
 export var flickering = false
+export(float) var flicker_intensity = 1.0
 onready var audio = $AudioStreamPlayer3D
 var rng = RandomNumberGenerator.new()
 var time_to_flicker = 0.5
@@ -22,22 +23,22 @@ func _process(delta):
 			if turning_off:
 				if next_attenuation_val == -1:
 					next_attenuation_val = 0.02
-					time_to_flicker = 0.2
+					time_to_flicker = 0.2 / flicker_intensity
 				elif next_attenuation_val == 0.02:
 					next_attenuation_val = 1
-					time_to_flicker = 0.1
+					time_to_flicker = 0.1 / flicker_intensity
 					audio.stream_paused = true
 				elif next_attenuation_val == 1:
 					next_attenuation_val = 0.01
-					time_to_flicker = 0.2
+					time_to_flicker = 0.2 / flicker_intensity
 					audio.stream_paused = false
 				elif next_attenuation_val == 0.01:
 					next_attenuation_val = 2
-					time_to_flicker = 0.1
+					time_to_flicker = 0.1 / flicker_intensity
 					audio.stream_paused = true
 				elif next_attenuation_val == 2:
 					next_attenuation_val = 300
-					time_to_flicker = 5
+					time_to_flicker = 5 / flicker_intensity
 				elif next_attenuation_val == 300:
 					next_attenuation_val = rng.randf_range(0.5, 0.7)
 					time_to_flicker = rng.randf_range(0.1, 0.2)
@@ -59,6 +60,6 @@ func _process(delta):
 				else:
 					time_to_flicker = rng.randf_range(0.01, 0.1)
 			
-			self.spot_attenuation = next_attenuation_val
-			backlight.omni_attenuation = next_attenuation_val
+			self.spot_attenuation = next_attenuation_val * flicker_intensity
+			backlight.omni_attenuation = next_attenuation_val * flicker_intensity
 			acc = 0

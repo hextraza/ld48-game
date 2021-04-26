@@ -22,8 +22,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0 )
 
 [node name="Camera" type="Camera" parent="Rotation_Helper"]
 current = true
-near = 0.25
-far = 4000.0
+far = 8000.0
 
 [node name="RayCast" type="RayCast" parent="Rotation_Helper/Camera"]
 enabled = true

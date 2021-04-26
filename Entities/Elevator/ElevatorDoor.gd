@@ -18,6 +18,7 @@ signal activate_control_panel
 func _physics_process(delta):
 	if elevator != null && elevator.door_open:
 		$KinematicBody.active = false
+		$"../Control Panel".active = false
 		_on_KinematicBody_object_interacted()
 		
 	if door_state == DoorState.OPENING or door_state == DoorState.CLOSING:
@@ -28,8 +29,12 @@ func _physics_process(delta):
 	if door_state == DoorState.OPENING && translated_dist > abs(max_translate_dist):
 		door_state = DoorState.OPEN
 		translated_dist = 0
-		emit_signal("activate_control_panel")
-		door_audio.stop()
+		
+		if !elevator.door_open:
+			emit_signal("activate_control_panel")
+			door_audio.stop()
+		else:
+			elevator.door_open = false
 	elif door_state == DoorState.CLOSING && translated_dist > abs(max_translate_dist):
 		door_state = DoorState.OCCUPIED
 		translated_dist = 0
@@ -46,8 +51,6 @@ func _on_KinematicBody_object_interacted():
 		
 		if !elevator.door_open:
 			door_audio.play()
-		else:
-			elevator.door_open = false
 
 func _on_Control_Panel_object_interacted():
 	if door_state == DoorState.OPEN:

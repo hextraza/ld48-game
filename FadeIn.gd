@@ -17,16 +17,15 @@ func _ready():
 	yield(radio, "radio_finished")
 	
 	sight_ray_cast.enabled = true
-	self.queue_free()
 	
 func _process(delta):
-	if time_til_fade > 0:
-		time_til_fade -= delta
-		return
-		
 	if disable_fadein:
 		time_til_fade = 0
 		acc = fade_in_time
+		
+	if time_til_fade > 0:
+		time_til_fade -= delta
+		return
 
 	acc += delta
 	
@@ -41,3 +40,4 @@ func _process(delta):
 			labels[0].display("Hold RMB to open your radio", 6)
 		
 		visible = false
+		self.queue_free()

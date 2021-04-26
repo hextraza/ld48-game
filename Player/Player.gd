@@ -39,7 +39,7 @@ func _process(_delta):
 func _physics_process(delta):
 	if !input_disabled:
 		process_input(delta)
-	process_movement(delta)
+		process_movement(delta)
 
 
 func process_input(_delta):

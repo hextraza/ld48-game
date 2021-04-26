@@ -2,7 +2,7 @@ extends Spatial
 
 var waiting = true
 var translate_vector = Vector3(0.0, 0.0, 0.0)
-var max_translate_dist = -2.5
+var max_translate_dist = -1.35
 var translated_dist = 0
 
 onready var audio = $KinematicBody/AudioStreamPlayer

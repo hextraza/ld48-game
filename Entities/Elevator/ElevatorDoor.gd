@@ -42,7 +42,7 @@ func _physics_process(delta):
 func _on_KinematicBody_object_interacted():
 	if door_state == DoorState.CLOSED:
 		door_state = DoorState.OPENING
-		max_translate_dist = -1.5
+		max_translate_dist = -1.35
 		
 		if !elevator.door_open:
 			door_audio.play()
@@ -52,7 +52,7 @@ func _on_KinematicBody_object_interacted():
 func _on_Control_Panel_object_interacted():
 	if door_state == DoorState.OPEN:
 		door_state = DoorState.CLOSING
-		max_translate_dist = 1.5
+		max_translate_dist = 1.35
 		elevator_audio.play()
 		
 		player.input_disabled = true

@@ -8,6 +8,7 @@ export(float) var raising_speed := 0.0
 onready var radio_pending_noise := $RadioPendingNoise
 onready var radio_white_noise := $RadioWhiteNoise
 onready var radio_audio := $RadioAudio
+onready var player = get_tree().get_root().get_node("World/Player")
 var is_pending := false
 
 # States
@@ -52,6 +53,10 @@ func finished() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
+	if !player.input_disabled:
+		_process_input(delta)
+		
+func _process_input(delta) -> void:
 	match state:
 		RadioStates.WAITING:
 			if Input.is_action_pressed("player_radio"):

@@ -14,13 +14,12 @@ onready var first_control_panel = get_tree().get_root().get_node("World/Dam/Elev
 # State transitions
 func found() -> void:
 	var radios = get_tree().get_nodes_in_group("radio")
-	if radios:			
+	if radios:
+		self.enabled = false
 		radios[0].radio_pending_noise.stream = pending_noise_sample 
 		radios[0].pending_signal(sample)
 		yield(radios[0], "radio_finished")
 		first_control_panel.active = true
-
-	self.enabled = false
 
 func _physics_process(_delta) -> void:
 	match state:

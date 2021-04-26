@@ -16,7 +16,7 @@ func _ready():
 	radio.pending_signal(sample)
 	
 	yield(radio, "radio_finished")
-	
+	yield(get_tree().create_timer(2), "timeout")
 	sight_ray_cast.enabled = true
 	self.queue_free()
 	
@@ -41,6 +41,6 @@ func _process(delta):
 		
 		var labels = get_tree().get_nodes_in_group("informational_label")
 		if labels:
-			labels[0].display("Hold RMB to open your radio", 6)
+			labels[0].display("Hold RMB to open your radio", 4)
 		
 		visible = false

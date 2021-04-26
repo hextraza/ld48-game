@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,11 @@
 [ext_resource path="res://Entities/Elevator/Exit_Elevator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/Creepy_Fluorescent/CreepyFluorescent.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/DamHall/DamHall.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/Table/Table.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/File_Cabinet_v1/File_Cabinet_1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/File_Cabinet_v2/File_Cabinet_2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Entities/Key_1/Key_1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Entities/Teddy_Bear/TeddyRoosevelt.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.0666667, 0.0666667, 0.0705882, 1 )
@@ -71,6 +76,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+disable_fadein = true
 sample = ExtResource( 5 )
 
 [node name="Dam" parent="." instance=ExtResource( 3 )]
@@ -111,3 +117,71 @@ transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107,
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.97379, 0 )
 spot_attenuation = 0.01
 flickering = true
+
+[node name="Admin Room" type="Spatial" parent="DamHall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34303, -11.7157, -1.46399 )
+
+[node name="CreepyFluorescent" parent="DamHall/Admin Room" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.26739, 14.4142, 21.4465 )
+
+[node name="Table" parent="DamHall/Admin Room" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 5.09725, 12.4382, 19.8187 )
+
+[node name="Spatial" parent="DamHall/Admin Room/Table" instance=ExtResource( 13 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 5.32852, 2.01807, 2.45755 )
+
+[node name="Table2" parent="DamHall/Admin Room" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 9.066, 12.4237, 21.2879 )
+
+[node name="Cabinets" type="Spatial" parent="DamHall/Admin Room"]
+
+[node name="File_Cabinet_1" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 11 )]
+transform = Transform( 0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 8.33763, 12.3563, 18.9114 )
+
+[node name="File_Cabinet_16" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 11 )]
+transform = Transform( 0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 8.93466, 12.3563, 18.9114 )
+
+[node name="File_Cabinet_14" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 11 )]
+transform = Transform( 0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 7.74193, 12.3563, 18.9114 )
+
+[node name="File_Cabinet_15" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 11 )]
+transform = Transform( 0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 7.14348, 12.3563, 18.9114 )
+
+[node name="File_Cabinet_2" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.2571, 12.2776, 23.0299 )
+
+[node name="File_Cabinet_3" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.2571, 13.5124, 23.0299 )
+
+[node name="File_Cabinet_4" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.2571, 12.2776, 22.4094 )
+
+[node name="File_Cabinet_5" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.2571, 13.5124, 22.4094 )
+
+[node name="File_Cabinet_6" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.25445, 12.2803, 21.7993 )
+
+[node name="File_Cabinet_7" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.25445, 13.515, 21.7993 )
+
+[node name="File_Cabinet_8" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.2571, 12.2776, 20.9934 )
+
+[node name="File_Cabinet_9" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.2571, 13.5124, 20.9934 )
+
+[node name="File_Cabinet_10" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.2571, 12.2776, 20.3729 )
+
+[node name="File_Cabinet_11" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.2571, 13.5124, 20.3729 )
+
+[node name="File_Cabinet_12" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.25445, 12.2803, 19.7628 )
+
+[node name="File_Cabinet_13" parent="DamHall/Admin Room/Cabinets" instance=ExtResource( 12 )]
+transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08, 3.25445, 13.515, 19.7628 )
+
+[node name="Teddy" parent="DamHall/Admin Room" instance=ExtResource( 14 )]
+transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 7.85517, 13.3777, 18.8888 )

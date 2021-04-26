@@ -6,8 +6,7 @@ onready var next_elevator_door = get_tree().get_root().get_node(next_elevator_re
 onready var player = get_tree().get_root().get_node("World/Player")
 
 func _on_Door_elevate():
-	$AudioStreamPlayer.play()
-	yield($AudioStreamPlayer, "finished")
+	yield($Door/KinematicBody/AudioStreamPlayer, "finished")
 	player.translation = new_player_position
 	
 	var t = Timer.new()

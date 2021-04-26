@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Entities/Phone/Phone Base.glb" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Phone/PhoneReceiver.glb" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Interactable/Interactable.gd" type="Script" id=3]
 [ext_resource path="res://Entities/Phone/Phone.gd" type="Script" id=4]
 [ext_resource path="res://Entities/Phone/Unplugging Phone.wav" type="AudioStream" id=5]
+[ext_resource path="res://Entities/Phone/Phone Ringing.wav" type="AudioStream" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1.06243, 1 )
@@ -17,6 +18,7 @@ script = ExtResource( 4 )
 [node name="Interactable" type="KinematicBody" parent="."]
 collision_layer = 3
 script = ExtResource( 3 )
+active = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Interactable"]
 transform = Transform( 4.00882, 0, 0, 0, 5.96903, 0, 0, 0, 2.37586, 0, 0.740632, 2.06957 )
@@ -29,4 +31,9 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1
 stream = ExtResource( 5 )
 unit_size = 5.0
 
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 6 )
+unit_size = 5.0
+
 [connection signal="object_interacted" from="Interactable" to="." method="_on_Interactable_object_interacted"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_AudioStreamPlayer3D_finished"]

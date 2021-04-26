@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://Entities/Key_1/Key_1.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Entities/Teddy_Bear/TeddyRoosevelt.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Player/Radio/RadioClips/Radio Op 5.wav" type="AudioStream" id=15]
+[ext_resource path="res://AdminRoomTrigger.gd" type="Script" id=16]
+[ext_resource path="res://Player/Radio/RadioClips/Radio Op 3.wav" type="AudioStream" id=17]
+[ext_resource path="res://Entities/Phone/Phone.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Player/Radio/RadioClips/Radio Op 4.wav" type="AudioStream" id=19]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.0666667, 0.0666667, 0.0705882, 1 )
@@ -57,6 +61,8 @@ adjustment_contrast = 1.26
 adjustment_saturation = 1.58
 
 [sub_resource type="BoxShape" id=3]
+
+[sub_resource type="BoxShape" id=4]
 
 [node name="World" type="Spatial"]
 
@@ -130,10 +136,13 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 5.09725, 12.4382, 19.818
 
 [node name="Key" parent="DamHall/Admin Room/Table" instance=ExtResource( 13 )]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 5.32852, 2.01807, 2.45755 )
-radio_sample = ExtResource( 15 )
+radio_sample = ExtResource( 19 )
 
 [node name="Table2" parent="DamHall/Admin Room" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 9.066, 12.4237, 21.2879 )
+
+[node name="Phone" parent="DamHall/Admin Room/Table2" instance=ExtResource( 18 )]
+transform = Transform( 0.3, 6.21725e-15, 0, 0, -1.31134e-08, 0.3, 6.21725e-15, -0.3, -1.31134e-08, 0, 2.13177, 1.84102 )
 
 [node name="Cabinets" type="Spatial" parent="DamHall/Admin Room"]
 
@@ -188,6 +197,16 @@ transform = Transform( -0.08, 0, 1.20797e-08, 0, 0.08, 0, -1.20797e-08, 0, -0.08
 [node name="Teddy" parent="DamHall/Admin Room" instance=ExtResource( 14 )]
 transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 7.85517, 13.3777, 18.8888 )
 
+[node name="AdminRoomTrigger" type="Area" parent="DamHall/Admin Room"]
+transform = Transform( -0.0849398, 0, 0, 0, 0.115113, 0, 0, 0, 0.198442, 7.65476, 12.5531, 24.4752 )
+script = ExtResource( 16 )
+radio_sample1 = ExtResource( 17 )
+radio_sample2 = ExtResource( 15 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DamHall/Admin Room/AdminRoomTrigger"]
+transform = Transform( 5.22728, 0, 0, 0, 6.04147, 0, 0, 0, 5.21483, 0, 0.322792, 0 )
+shape = SubResource( 4 )
+
 [node name="OutportRiverNoise" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7219, 16.8638, -301.108 )
 unit_size = 82.4
@@ -199,3 +218,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69698, 253.216, -549.288 )
 unit_size = 35.1
 autoplay = true
 bus = "OutdoorsTop"
+
+[connection signal="teddy_acquired" from="DamHall/Admin Room/Teddy" to="DamHall/Admin Room/Table2/Phone" method="_on_Teddy_teddy_acquired"]
+[connection signal="body_shape_entered" from="DamHall/Admin Room/AdminRoomTrigger" to="DamHall/Admin Room/AdminRoomTrigger" method="_on_AdminRoomTrigger_body_shape_entered"]

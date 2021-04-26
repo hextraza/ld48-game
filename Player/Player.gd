@@ -23,6 +23,8 @@ var has_office_key := false
 var has_control_panel_key := false
 var input_disabled = true
 
+onready var footstep_audio := $CollisionShape/FootstepAudio
+
 func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
@@ -50,6 +52,7 @@ func process_input(_delta):
 		input_movement_vector.y += 1
 	if Input.is_action_pressed("player_backward"):
 		input_movement_vector.y -= 1
+		
 	if Input.is_action_pressed("player_left"):
 		input_movement_vector.x -= 1
 	if Input.is_action_pressed("player_right"):
@@ -64,6 +67,7 @@ func process_input(_delta):
 		if Input.is_action_just_pressed("player_jump"):
 			vel.y = JUMP_SPEED
 			just_jumped = true
+			footstep_audio.stop()
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
@@ -98,6 +102,10 @@ func process_movement(delta):
 	if !is_on_floor() or dir != Vector3(0,0,0) or just_jumped == true:
 		vel = move_and_slide(vel, Vector3(0, 1, 0), true, 4, deg2rad(MAX_SLOPE_ANGLE))
 		just_jumped = false
+		if not footstep_audio.playing and is_on_floor():
+			footstep_audio.play()
+	else:
+		footstep_audio.stop()
 	
 
 

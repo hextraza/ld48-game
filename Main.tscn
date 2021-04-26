@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Entities/Elevator/Elevator.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Elevator/Exit_Elevator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/Creepy_Fluorescent/CreepyFluorescent.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/DamHall/DamHall.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.0666667, 0.0666667, 0.0705882, 1 )
@@ -72,20 +73,22 @@ sample = ExtResource( 5 )
 
 [node name="Dam" parent="." instance=ExtResource( 3 )]
 
-[node name="ElevatorOne" parent="." instance=ExtResource( 6 )]
+[node name="ElevatorOne" parent="Dam" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, -498 )
-new_player_position = Vector3( 0, 80, 0 )
-next_elevator_reference = "World/ElevatorTwo"
+next_elevator = NodePath("../../DamHall/ElevatorTwo")
 
-[node name="CreepyFluorescent" parent="ElevatorOne" instance=ExtResource( 8 )]
+[node name="CreepyFluorescent" parent="Dam/ElevatorOne" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.97379, 0 )
 spot_attenuation = 0.01
 flickering = true
 
-[node name="ElevatorTwo" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 0 )
+[node name="DamHall" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0 )
 
-[node name="CreepyFluorescent" parent="ElevatorTwo" instance=ExtResource( 8 )]
+[node name="ElevatorTwo" parent="DamHall" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.0100021, 29 )
+
+[node name="CreepyFluorescent" parent="DamHall/ElevatorTwo" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.97379, 0 )
 spot_attenuation = 0.01
 flickering = true

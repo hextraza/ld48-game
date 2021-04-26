@@ -1,14 +1,15 @@
 extends Spatial
 
-export var new_player_position = Vector3(0, 0, 0)
-export var next_elevator_reference = ""
-onready var next_elevator_door = get_tree().get_root().get_node(next_elevator_reference + "/Door")
+export (NodePath) var next_elevator
+
 onready var player = get_tree().get_root().get_node("World/Player")
 
 func _on_Door_elevate():
+	var next_ref = get_node(next_elevator)
+	
 	yield($Door/KinematicBody/AudioStreamPlayer, "finished")
 	player.stop_screen_shake()
-	player.translation = new_player_position
+	player.global_transform.origin = next_ref.global_transform.origin
 	
 	var t = Timer.new()
 	t.set_wait_time(0.5)
@@ -18,4 +19,4 @@ func _on_Door_elevate():
 	yield(t, "timeout")
 	t.queue_free()
 
-	next_elevator_door.open()
+	next_ref.get_node("Door").open()

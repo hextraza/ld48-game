@@ -44,4 +44,3 @@ func _process(delta):
 			labels[0].display("Hold RMB to open your radio", 6)
 		
 		visible = false
-

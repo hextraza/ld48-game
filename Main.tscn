@@ -21,6 +21,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+disable_fadein = true
 sample = ExtResource( 5 )
 
 [node name="dam_exterior" parent="." instance=ExtResource( 3 )]

@@ -25,7 +25,6 @@ current = true
 [node name="RayCast" type="RayCast" parent="Rotation_Helper/Camera"]
 enabled = true
 cast_to = Vector3( 0, 0, -3 )
-collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="SightRayCast" type="RayCast" parent="Rotation_Helper/Camera"]

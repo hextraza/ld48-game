@@ -63,12 +63,6 @@ func process_input(_delta):
 	dir += -cam_xform.basis.z * input_movement_vector.y
 	dir += cam_xform.basis.x * input_movement_vector.x
 	
-	if is_on_floor():
-		if Input.is_action_just_pressed("player_jump"):
-			vel.y = JUMP_SPEED
-			just_jumped = true
-			footstep_audio.stop()
-	
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

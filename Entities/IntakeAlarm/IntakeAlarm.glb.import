@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/dam_exterior.glb-70260eafd415eb05827178c9edaa0cf6.scn"
+path="res://.import/IntakeAlarm.glb-6438ddf1f03f23c20149ae3c3aaa8bea.scn"
 
 [deps]
 
-source_file="res://Environments/Dam/dam_exterior.glb"
-dest_files=[ "res://.import/dam_exterior.glb-70260eafd415eb05827178c9edaa0cf6.scn" ]
+source_file="res://Entities/IntakeAlarm/IntakeAlarm.glb"
+dest_files=[ "res://.import/IntakeAlarm.glb-6438ddf1f03f23c20149ae3c3aaa8bea.scn" ]
 
 [params]
 

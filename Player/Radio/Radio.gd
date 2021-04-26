@@ -8,7 +8,10 @@ export(float) var raising_speed := 0.0
 onready var radio_pending_noise := $RadioPendingNoise
 onready var radio_white_noise := $RadioWhiteNoise
 onready var radio_audio := $RadioAudio
+onready var player = get_tree().get_root().get_node("World/Player")
 var is_pending := false
+# please save me
+var intake_alarm = null
 
 # States
 enum RadioStates {WAITING, RAISING, LISTENING, FINISHED, LOWERING}
@@ -35,23 +38,34 @@ func raising() -> void:
 	state = RadioStates.RAISING
 	
 func lowering() -> void:
-	radio_white_noise.playing = false
-	radio_audio.playing = false
+	radio_white_noise.stop()
+	radio_audio.stop()
 	state = RadioStates.LOWERING
 	
 func listening() -> void:
-	radio_pending_noise.playing = false
-	radio_white_noise.playing = true
-	radio_audio.playing = true
+	radio_pending_noise.stop()
+	radio_white_noise.play()
+	radio_audio.play()
 	state = RadioStates.LISTENING
 
 func finished() -> void:
 	radio_audio.stream = null
 	is_pending = false
 	state = RadioStates.LISTENING
+	if intake_alarm.state == 0:
+		intake_alarm.state = 1
+	
+func _ready():
+	var intakes = get_tree().get_nodes_in_group("intake_alarm_event")
+	if intakes:
+		intake_alarm = intakes[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
+	if !player.input_disabled:
+		_process_input(delta)
+		
+func _process_input(delta) -> void:
 	match state:
 		RadioStates.WAITING:
 			if Input.is_action_pressed("player_radio"):

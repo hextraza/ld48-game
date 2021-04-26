@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fence.png-a2769687dda949f078f0428109728fdb.stex"
+path="res://.import/outlet.png-a5dc53baf7ede9f45f294c4bd61e2745.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environments/Dam/textures/Fence.png"
-dest_files=[ "res://.import/Fence.png-a2769687dda949f078f0428109728fdb.stex" ]
+source_file="res://Entities/Dam/outlet.png"
+dest_files=[ "res://.import/outlet.png-a5dc53baf7ede9f45f294c4bd61e2745.stex" ]
 
 [params]
 

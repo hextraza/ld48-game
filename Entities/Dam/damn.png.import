@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/terrain.png-174b028444ed952c7ece21d788fb28b7.stex"
+path="res://.import/damn.png-2d4805f8a84f21b148fcf28bc0b226fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environments/Dam/terrain.png"
-dest_files=[ "res://.import/terrain.png-174b028444ed952c7ece21d788fb28b7.stex" ]
+source_file="res://Entities/Dam/damn.png"
+dest_files=[ "res://.import/damn.png-2d4805f8a84f21b148fcf28bc0b226fa.stex" ]
 
 [params]
 

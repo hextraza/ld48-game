@@ -36,7 +36,8 @@ func _on_Area_body_entered(_body):
 	yield(get_tree().create_timer(2.0), "timeout")
 	open_audio.stop()
 	slam_audio.play()
+	if state != DoorStates.SLAMMING and state != DoorStates.SLAMMED:
+		slam_area.queue_free()
 	state = DoorStates.SLAMMING
 	door.interacted = false
-	slam_area.queue_free()
 

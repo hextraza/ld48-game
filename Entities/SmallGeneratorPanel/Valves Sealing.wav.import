@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Valves Sealing.wav-f01970907b1cde8ddac7f8f1f51c8e21.sample"
+
+[deps]
+
+source_file="res://Entities/SmallGeneratorPanel/Valves Sealing.wav"
+dest_files=[ "res://.import/Valves Sealing.wav-f01970907b1cde8ddac7f8f1f51c8e21.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

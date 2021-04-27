@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Interactable/Interactable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Key_2/Key 2.glb" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Key_2/Key_2.gd" type="Script" id=3]
 [ext_resource path="res://Entities/Key_1/PickUpSound.wav" type="AudioStream" id=4]
+[ext_resource path="res://Player/Radio/RadioClips/Radio Op 13.wav" type="AudioStream" id=5]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 3 )
+sample = ExtResource( 5 )
 
 [node name="Key 2" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-10, -0.01, 0, -4.37114e-10, 1.91069e-17, -0.01, 0.01, -4.37114e-10, -4.37114e-10, 0, 0, 0 )

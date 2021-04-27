@@ -1,6 +1,7 @@
 extends Area
 
 export(AudioStreamSample) var sample = null
+onready var generator_panel := get_parent().get_node("GeneratorPanel/Control Panel 3/KinematicBody")
 var entered = false
 
 func _on_Area_body_entered(_body):
@@ -10,5 +11,6 @@ func _on_Area_body_entered(_body):
 		if radios:
 			radios[0].pending_signal(sample)
 			yield(radios[0], "radio_finished")
-			
+		
+		generator_panel.active = true
 		queue_free()
